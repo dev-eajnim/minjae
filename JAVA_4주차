@@ -1,0 +1,46 @@
+/* 190926
+Try-catch-finally 블록을 이용하여 예제 3-12를 수정하여 0으로 나누는 경우와 정수 아닌 문자가 입력될 경우 다시 입력하여 실행되도록 하시오
+
+나뉨수를 입력하시오:a
+정수가 아닙니다. 다시 입력하세요!
+나뉨수를 입력하시오:9
+나눗수를 입력하시오:0
+0으로 나눌 수 없습니다! 다른 정수를 입력하세요
+나눗수를 다시 입력하시오:b
+나눗수를 입력하시오:3
+9를 3로 나누면 몫은 3입니다.
+나뉨수를 입력하시오:
+*/
+package temp;
+
+import java.util.Scanner;
+import java.util.InputMismatchException;
+
+public class temp {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		int dividend=0;
+		int divisor = 0;
+		
+		while(true){			
+		try {		
+			System.out.print("나뉨수를 입력하시오.");
+			dividend = scanner.nextInt();
+			System.out.print("나눗수를 입력하시오.");
+			divisor = scanner.nextInt();
+		
+			System.out.println(dividend+"를"+divisor+"로 나누면 몫은 "+dividend/divisor+"입니다."); //여긴 맞음
+		}
+		catch(ArithmeticException e){
+			System.out.println("0으로 나눌 수 없습니다.");
+			scanner.nextInt(); //잘못 입력된 값을 지워주는 역할
+			continue;
+		}
+		catch(InputMismatchException m){
+			System.out.println("정수가 아닙니다! 다른 정수를 입력하세요.");
+			scanner.next(); //잘못 입력된 값을 지워주는 역할, 문자이기에 그냥 next 가 되어야 함, nextint가 아니라 
+			continue;
+			}
+		}
+	}
+}
