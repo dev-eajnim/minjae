@@ -1,0 +1,66 @@
+// 정내혁
+
+import requests
+import xml.etree.ElementTree as etree
+
+class GetData:
+    key = "5048634d437470673130386548486867"
+    url = "http://swopenAPI.seoul.go.kr/api/subway/%s/xml/realtimePosition/0/5/분당선"%key
+
+    def main(self):
+        #1. 서버에서 데이터를 가져와서 파일로 저장
+        data = requests.get(self.url, allow_redirects=True)
+        open('sample.xml', 'wb').write(data.content)
+
+        #2. 파일을 읽어서 파싱
+        tree = etree.parse('sample.xml')
+        root = tree.getroot()
+
+        #3.출력
+        print('<<지하철 실시간 위치 정보>>(총:' + root.findtext('total') + '개)') #여기는 모르겠다
+        for a in root.findall('row'):
+            print(a.findtext('subwayNm')) 
+            print(a.findtext('statnNm'))
+            print(a.findtext('trainNo'))
+            print(a.findtext('updnLine'))
+            print(a.findtext('statnTnm'))
+            print(a.findtext('trainSttus'))
+            print('—————————')
+
+getData = GetData()
+if __name__ == '__main__':
+    getData.main()
+    
+//채수빈 
+import urllib.request
+import xml.etree.ElementTree as etree
+
+class GetData:
+    key = "4f724b464c74706733366c42734576"
+    url = "http://swopenAPI.seoul.go.kr/api/subway/%s/xml/realtimeStationArrival/0/5/서울" % key
+
+    def main(self):
+        #1. 서버에서 데이터를 가져와서 파일로 저장
+        data = urllib.request.urlopen(self.url).read()
+        f = open("sample.xml", "wb")
+        f.write(data) #파일로 저장됨
+        f.close()
+
+        #2. 파일을 읽어서 파싱
+        tree = etree.parse('sample.xml')
+        root = tree.getroot()
+
+        #3.출력
+        print('<<지하철 실시간 위치 정보>>(총:' + root.findtext('list_total_count')+'개)')
+        for a in root.findall('row'):
+            print(a.findtext('subwayId')) 
+            print(a.findtext('trainLineNm'))
+            print(a.findtext('statnNm'))
+            print(a.findtext('arvlMsg2'))
+            print(a.findtext('arvlMsg3'))
+            print(a.findtext('arvlCd'))
+            print('------------------')
+
+getData = GetData()
+if __name__ == '__main__':
+    getData.main()
