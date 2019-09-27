@@ -2,7 +2,7 @@ import requests
 import xml.etree.ElementTree as etree
 
 class GetData:
-    key = "5048634d437470673130386548486867"
+    key = "========================================"
     url = "http://swopenAPI.seoul.go.kr/api/subway/%s/xml/realtimePosition/0/200/분당선"%key
 
     def main(self):
