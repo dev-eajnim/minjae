@@ -3,7 +3,7 @@ import xml.etree.ElementTree as etree
 
 class GetData:
     key = "5048634d437470673130386548486867"
-    url = "http://swopenAPI.seoul.go.kr/api/subway/%s/xml/realtimePosition/0/5/분당선"%key
+    url = "http://swopenAPI.seoul.go.kr/api/subway/%s/xml/realtimePosition/0/200/분당선"%key
 
     def main(self):
         #1. 서버에서 데이터를 가져와서 파일로 저장
@@ -15,17 +15,19 @@ class GetData:
         root = tree.getroot()
 
         #3.출력
-        print('<<지하철 실시간 위치 정보>>') #여기는 모르겠다
+        print('<<복정역 지하철 실시간 위치 정보>>') 
         for a in root.findall('row'):
-            print(a.findtext('subwayNm') +"("+a.findtext('statnTnm')+'행)') #지하철 호선명
-            print('열차번호:'+a.findtext('trainNo')) #열차번호
-            if(a.findtext('trainSttus')=='0'):
-                print(a.findtext('statnNm')+"역진입")
-            elif(a.findtext('trainSttus')=='1'):
-                print(a.findtext('statnNm')+"역도착")
-            else:
-                print(a.findtext('statnNm')+"역출발") 
-            print('—————————')
+           
+            if(a.findtext('statnNm')=='복정'):
+                print(a.findtext('subwayNm') +"("+a.findtext('statnTnm')+'행)')
+                print('열차번호:'+a.findtext('trainNo')) #열차번호
+                if(a.findtext('trainSttus')=='0'):
+                    print(a.findtext('statnNm')+"역진입")
+                elif(a.findtext('trainSttus')=='1'):
+                    print(a.findtext('statnNm')+"역도착")
+                else:
+                    print(a.findtext('statnNm')+"역출발")
+           
 
 getData = GetData()
 if __name__ == '__main__':
