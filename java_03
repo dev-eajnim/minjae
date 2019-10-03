@@ -108,3 +108,25 @@ public class temp1 {
 	}
 }
 //예제6
+/*
+ * break문 이용해서 while문 벗어나기
+ * "exit"이 입력되면 whlie문이 벗어나도록 break문을 활용하는 프로그램을 작성해라
+ */
+
+package temp1;
+import java.util.Scanner;
+public class temp1 {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		String sen="start";
+		while(true) {
+			System.out.println("문장을 입력하시오. exit을 입력하면 종료");
+			sen = scanner.next();
+			if(sen.equals("exit"))	//문자열 비교시 String.equals()사용. 문자열이 같으면 true를 리턴함
+				break;
+		}System.out.println("종료");
+		scanner.close();
+	}
+}
+
+//예제7
