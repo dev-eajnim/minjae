@@ -94,6 +94,246 @@ public class temp1 {
 		boolean single = scanner.nextBoolean(); //true, false로 입력해야지 나옴
 		System.out.println("당신의 독신여부는 "+single+"입니다.");
 		
+		scanner.close(); //닫아줘야함!
+	}
+}
+
+//예제6
+/*
+ * 초단위의 정수를 입력받고, 몇 시간, 몇 분, 볓 초인지 구하여 출력하는 프로그램
+ */
+
+package temp1;
+import java.util.Scanner;
+
+public class temp1 {
+	public static void main(String[] args) { 
+		System.out.println("초단위의 정수를 입력하세요.");
+		
+		Scanner scanner = new Scanner(System.in);
+		int time = scanner.nextInt();
+		
+		System.out.println(time+"은"+(time/60)/60+"시간, "+(time/60)%60+"분 , "+time%60+"초");
+	}
+}
+
+//예제7
+/*
+ * 다음 코드의 실행 결과는?
+ */
+
+package temp1;
+
+public class temp1 {
+	public static void main(String[] args) {
+		int a=3, b=3,c=3;
+		//대입연산자
+		a+=3;	//a=6
+		b*=3;	//b=9
+		c%=2;	//c=1
+		System.out.println("a= "+a+", b="+b+", c="+c);
+		
+		int d=3;
+		//증감연산자
+		a=d++;	//a=3, d=3
+		System.out.println("a="+a+" d="+d);	//d=4
+		a=++d;	//a=5,d=5
+		System.out.println("a="+a+" d="+d);	
+		a=d--;	//a=5, d=5
+		System.out.println("a="+a+" d="+d);	//d=4
+		a=--d;	//a=3,d=3
+		System.out.println("a="+a+" d="+d);
+	}
+}
+
+//예제8
+/*
+ * 다음 코드의 실행 결과는?
+ */
+
+package temp1;
+
+public class temp1 {
+	public static void main(String[] args) {
+		System.out.println('a'>'b'); //F
+		System.out.println(3>=2);	//T
+		System.out.println(-1<0);	//T
+		System.out.println(3.45<=2);	//F
+		System.out.println(3==2);	//F
+		System.out.println(3!=2);	//T
+		System.out.println(!(3!=2));	//F
+		System.out.println((3>2)&&(3>4));	//F
+		System.out.println((3!=2)||(-1>0));	//T
+		System.out.println((3!=2)^(-1>0));	//1==T
+	}
+}
+
+//예제9
+/*
+ * 다음 코드의 실행 결과는?
+ */
+
+package temp1;
+
+public class temp1 {
+	public static void main(String[] args) {
+		int a=3, b=5;
+		System.out.println("두 수의 차는 "+(a<b?b-a:a-b));
+	}
+}
+//예제10
+/*
+ * 다음 코드의 실행 결과는?
+ */
+
+package temp1;
+
+public class temp1 {
+	public static void main(String[] args) {
+		short a = (short)0x55ff;
+		short b = (short)0x00ff;
+		//비ㅌ연산
+		System.out.println("[비트연산결과]");
+		System.out.printf("%04x\n",(short)(a&b));	//00ff, %04x를 출력하려면 printf로 해야함
+		System.out.printf("%04x\n",(short)(a|b));	//55ff, println 으로 하면 결과 안나옴
+		System.out.printf("%04x\n",(short)(a^b));	//5500
+		System.out.printf("%04x\n",(short)(~a));	//aa00
+		
+		byte c=20;
+		byte d=-8;
+		//시프트연산
+		System.out.println("[시프트연산결과]");
+		System.out.println(c<<2);	//20*4
+		System.out.println(c>>2);	//20/4
+		System.out.println(d>>2);	//-2
+		System.out.printf("%x\n",(d>>>2));	//3fffffffe
+		
+	int x=2,y=10,z=0;
+	z=x++*2 + --y-5 + x*(y%2); //2*2+9-5*3(1) = 11
+	//다음번 x가 나올때! 바뀜
+	}
+}
+
+//예제11
+/*
+ * 나이를 입력받아 20대인지 판별하는 프로그램을 작성하라.
+ */
+
+package temp1;
+import java.util.Scanner;
+
+public class temp1 {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.print("당신의 나이를 입력하세요.");
+		double age = scanner.nextDouble();
+		
+		if((age>=20)&&(age<30)) {
+			System.out.println("당신은 20대 입니다!");
+		}else
+			System.out.println("당신은  20대가 아닙니다.");
+		scanner.close();
+	}
+}
+
+//예제12
+/*
+ * 다중 if-else문을 이용하여 입력받은 성적에 대해 학점을 부어하는 프로그램
+ * 90,80,70,60
+ */
+
+package temp1;
+import java.util.Scanner;
+
+public class temp1 {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.print("당신의 성적을 입력하세요.(0~100)");
+		double score = scanner.nextDouble();
+		char grade='A';
+		
+		if(score>=90)
+			grade='A';
+		else if(score>=80)
+			grade='B';
+		else if(score>=70)
+			grade='C';
+		else  if(score>=60)
+			grade='D';
+		else
+			grade='F';
+			
+		System.out.println("당신의 성적은 "+score+"이고, 학점은 "+grade+"입니다.");
+		scanner.close();
+	}
+}
+
+//예제13
+/*
+ * 점수와 학년을 입력받아 60점 이상이면 합격, 아니면 불합격을 출력하라
+ * 다만 4학년은 70점 이상이어야 합격이다. 
+ */
+
+package temp1;
+import java.util.Scanner;
+
+public class temp1 {
+	public static void main(String[] args) {
+		System.out.print("당신의 점수(0~100)와 학년(1~4)을 순서대로 입력하세요.(빈칸으로)");
+		Scanner scanner = new Scanner(System.in);
+		
+		double score = scanner.nextDouble();
+		int level = scanner.nextInt();
+		String pass="";
+		
+		if(level>=4) {
+			if(score>=70)
+				pass="합격";
+			else
+				pass="불합격";
+		}else{
+			if(score>=60)
+				pass="합격";
+			else
+				pass="불합격";
+		}System.out.println("당신은 "+pass+"입니다.");
+		scanner.close();
+	}
+}
+
+//예제14
+/*
+ * 1~12 사이의 월을 입력받아 봄,여름,가을,겨울을 판단하여 출력 
+ */
+
+package temp1;
+import java.util.Scanner;
+
+public class temp1 {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("1~12 사이의 월을 입력하세요.");
+		
+		int month=scanner.nextInt();
+		
+		switch(month) {
+			case 3: case 4: case 5:
+				System.out.println("봄입니다.");
+				break;
+			case 6: case 7: case 8:
+				System.out.println("여름입니다.");
+				break;
+			case 9: case 10: case 11:
+				System.out.println("가을입니다.");
+				break;
+			case 12: case 1: case 2:
+				System.out.println("겨울입니다.");
+				break;
+			default:
+				System.out.println("1-12 사이에서 입력해야 합니다. ");
+				}	
 		scanner.close();
 	}
 }
