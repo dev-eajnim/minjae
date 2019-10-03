@@ -1,0 +1,66 @@
+//예제1
+/*
+ * for문을 이용하여 1부터 10까지 덧셈으로 표시하고 합을 출력하라.
+ * 1+2+3+4+5+6+7+8+9+10=55
+ */
+
+package temp1;
+
+public class temp1 {
+	public static void main(String[] args) {
+		int sum=0;
+		for(int i=1;i<=10;i++) {
+			sum+=i;
+			System.out.print(i);
+			if(i==10) {
+				System.out.print("="+sum);
+			}
+			else 
+				System.out.print("+");
+		}
+	}
+}
+
+//예제2
+/*
+ * while문을 이용하여 정수를 여러 개 입력받고 평균을 출력하라
+ * 0이 입력되면 입력을 종료한다.
+ */
+
+package temp1;
+import java.util.Scanner;
+public class temp1 {
+	public static void main(String[] args) {
+		
+		Scanner scanner = new Scanner(System.in);
+		int x=1;
+		double sum=0;
+		int count=1;
+		System.out.println("정수를 입력하세요. 0을 입력하면 평균을 출력"); //시작멘트
+		while((x = scanner.nextInt())!=0) {	//스캔을 계속 받아야 한다.
+			sum+=x;
+			count++;
+		}
+		System.out.println("평균"+(sum/count));
+		scanner.close();
+	}
+}
+
+//예제3
+/*
+ * do-while문을 이용하여 'a'에서 'z'가지 출력하는 프로그램
+ */
+
+package temp1;
+
+public class temp1 {
+	public static void main(String[] args) {
+		char x = 'a';
+		do {
+			System.out.print(x);
+			x++;
+		}while((x>='a')&&('z'>=x));
+	}
+}
+
+//예제4
