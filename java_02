@@ -1,0 +1,99 @@
+//예제03
+package temp1;
+
+public class temp1 {
+	public static void main(String[] args) { 
+		final double PI = 3.14;
+		double r = 1;
+		double area = r*r*PI;
+	  System.out.println("r = "+r);
+		System.out.println("area = "+area);
+	}
+}
+
+//예제4
+package temp1;
+
+public class temp1 {
+	public static void main(String[] args) { 
+		byte b= 127;
+		int i=100;
+		
+		System.out.println(b+i);	//227
+		System.out.println(10/4);	//2
+		System.out.println(10.0/4);	//2.25
+		System.out.println((char)0x12340041);	//A
+		System.out.println((byte)(b+i));	//-29
+		System.out.println((int)2.9+1.8);	//3.8
+		System.out.println((int)(2.9+1.8));		//4
+		System.out.println((int)2.9+(int)1.8);	//3
+	}
+}
+
+//예제5 - 민제코드
+/*
+ * scanner 클래스를 이용하여 이름, 도시, 나이, 체중, 독신 여부를 입력받고 다시 출력하는 프로그램 작성 
+ */
+
+package temp1;
+import java.util.Scanner;
+
+public class temp1 {
+	public static void main(String[] args) { 
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Input your name >>");
+		String name = scanner.next();
+		System.out.println("Input your city >>");
+		String city = scanner.next();
+		System.out.println("Input your age >>");
+		int age = scanner.nextInt();
+		System.out.println("Input your weight >>");
+		float weight = scanner.nextFloat();
+		System.out.println("Are you married? >> (Yes:0, No:1)");
+		int marriage = scanner.nextInt();
+		if(marriage == 0) {
+			System.out.println("Hi~"+name+". "
+					+ "You live in "+city
+					+"Your age is "+age
+					+"and your weight is "+weight
+					+"Your are already marriaged!");
+		}else
+			System.out.println("Hi~"+name
+					+". You live in "+city
+					+". Your age is "+age
+					+" and your weight is "+weight
+					+". You are not marriage.");
+		
+	}
+}
+
+/*
+ * scanner 클래스를 이용하여 이름, 도시, 나이, 체중, 독신 여부를 입력받고 다시 출력하는 프로그램 작성 
+ */
+//예제5 - 책 
+package temp1;
+import java.util.Scanner;
+
+public class temp1 {
+	public static void main(String[] args) { 
+		System.out.println(" 이름, 도시, 나이, 체중, 독신 여부를 빈칸으로 분리하여 입력하세요");
+		Scanner scanner = new Scanner(System.in);
+		
+		String name = scanner.next();
+		System.out.println("당신의 이름은 "+name+"입니다.");
+		
+		String city = scanner.next();
+		System.out.println("당신이 사는 도시는"+city+"입니다.");
+		
+		int age = scanner.nextInt();
+		System.out.println("당신의 나이는 "+age+"살 입니다.");
+		
+		double weight = scanner.nextDouble();
+		System.out.println("당신의 체중은 "+weight+"kg 입니다.");
+		
+		boolean single = scanner.nextBoolean(); //true, false로 입력해야지 나옴
+		System.out.println("당신의 독신여부는 "+single+"입니다.");
+		
+		scanner.close();
+	}
+}
