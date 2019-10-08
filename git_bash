@@ -1,0 +1,44 @@
+cd 폴더명
+: 그 폴더로 들어감
+
+cd -  OR cd..
+: 경로 하나전으로 돌아감
+
+source myvenv/Scripts/activate
+:가상환경 turn on
+
+pwd
+:지금 위치
+
+ls 
+: 지금 있는 파일들
+
+python manage.py startapp account
+: account라는 앱을 만듬
+
+git add .
+:  . 은 현재 디렉토리를 열어라 라는 의미?
+
+git commit -m "account create"
+: m은 message 
+
+git push origin master
+: 서버에 push 
+
+deactivate
+: 가상환경 멈추기
+
+<내 작업 올리는 법>
+git add .
+git commit -m "account create"
+git push origin master
+
+<다른 사람 작업 다운하는법>
+git pull
+
+ctrl shift ~
+: visual studio code에서 터미널 띄우는 단축키
+
+app은 프로젝트의 작은 부분들이다.
+
+https://www.notion.so/4eed5a2343bb4f09874fe6c56ea4ace8?v=138c8b8b488e42b6a2cc603714db9e4f
