@@ -1,0 +1,57 @@
+/*
+Book 클래스를 활용하여 2개짜리 Book 객체 배열을 만들고, 
+사용자로부터 책의 제목과 저자, 발간년도를 입력 받아 배열을 완성하라. 
+발간년도를 모르면 0을 입력하며 이 때 출력은 “발간년도미상”이다.
+
+<예시>
+제목>>사랑의 기술
+저자>>에리히 프롬
+발간년도>>1956
+제목>>어린왕자
+저자>>생텍쥐페리
+발간년도>>0
+(사랑의 기술, 에리히 프롬, 1956)(어린왕자, 생텍쥐페리, 발간년도미상)
+*/
+
+package temp1;
+import java.util.Scanner;
+
+
+class Book{
+	String title;
+	String author; 
+	String year;	//String year 하려면 .equals()를 해야함
+	//객체는 주소값을 가리키에, 저 문장은 주소가 0이니?라고 물어보는 것과 같아서 인식이 되지 않음
+	
+	public Book(String title, String author, String year) {
+		this.title = title;
+		this.author =author;
+		this.year = year;
+		
+		if(year.equals("0")) {
+			this.year = "발간년도 미상";
+		}
+	}
+}
+public class temp1 {
+	public static void main(String[] args) {
+		Book [] book = new Book[2]; 
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		for(int i = 0; i < book.length;i++) {
+			System.out.print("제목>>");
+			String title = scanner.nextLine();
+			System.out.print("저자>>");
+			String author = scanner.nextLine();
+			System.out.print("발간년도>>");
+			String year = scanner.nextLine();
+			
+			book[i] = new Book(title, author, year); 
+		}
+		
+		for(int i = 0; i < book.length ; i++) {
+			System.out.print("(" + book[i].title + ", " + book[i].author + ", "+ book[i].year +")");
+		} scanner.close();
+	}
+}
