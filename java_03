@@ -156,3 +156,92 @@ public class temp1 {
 }
 
 //예제8
+package temp1;
+import java.util.Scanner;
+
+public class temp1 {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		double sum=0;
+		
+		System.out.println("정수 5개 입력");
+		int intArray[] = new int[5];
+		for (int i=0; i<intArray.length;i++) {
+			intArray[i]=scanner.nextInt();
+			sum+=intArray[i];
+		}
+		System.out.println("평균은 "+sum/intArray.length+"입니다");
+		scanner.close();	
+	}
+}
+
+
+//예제9
+package temp1;
+import java.util.Scanner;
+
+public class temp1 {
+	public static void main(String[] args) {
+		
+		int n[] = {1,2,3,4,5};
+		int sum=0;
+		for(int k:n) {
+			System.out.print(k+" ");
+			sum+=k;
+		}System.out.println("합은 "+sum+" 입니다");
+		String s[]= {"사과","배","바나나","체리","딸기","포도"};
+		for(int k:n) {
+			System.out.print(s[k]+"  ");
+		}
+	}
+}
+
+
+//예제10
+package temp1;
+import java.util.Scanner;
+
+public class temp1 {
+	public static void main(String[] args) {
+		double score[][] = {
+				{3.3 , 3.4},{3.5 , 3.6},{3.7 , 4.0},{4.1 , 4.2}
+		};
+		double sum=0;
+		for(int i=0;i<score.length;i++) {
+			for(int j=0; j<score[i].length;j++) {
+				sum+=score[i][j];
+				
+			}
+		}
+		int n = score.length;
+		int m = score[1].length;
+		System.out.println("평균은 "+sum/(n*m));
+		
+		
+	}
+}
+
+//예제11
+package temp1;
+import java.util.Scanner;
+
+public class temp1 {
+	
+		static int [] makeArray() {
+			int temp[] = new int[4];
+			for(int i=0; i<temp.length; i++) {
+				temp[i] = i;
+			}
+		return temp;	
+	}
+		public static void main(String[] args) {
+			int intArray[]=new int[4];
+			intArray = makeArray();
+			for(int i=0;i<intArray.length;i++) {
+				System.out.print(intArray[i]+"  ");
+			}
+		}
+}
+
+//예제12
+
