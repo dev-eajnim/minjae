@@ -1,0 +1,47 @@
+
+   접근 한정자에 관한 실습입니다. 
+   아래 코드를 다음과 같이 수정 후 결과를 보여주고 설명하세요...
+1) A+B
+2) A+B+C+D+E
+3) A+B+C+D+E+F
+
+  
+  class Disk {
+   public int width=5; // ① public access modifier
+   public Disk(){}
+   }
+class Disk1 extends Disk {
+   protected int height=6; // ② protected access modifier,      A. protected int height=6, width=10; 수정
+   public Disk1(){}
+   public int area() {   // C. public int area(Disk2 d)  수정
+      return width*height; } // C. return d.width * d.height ; }  수정,  F. return super.width*height; } 수정
+   }
+class Disk2 extends Disk1 {
+    private int depth=7; // ③ private access modifier
+// B. public int width=15; 추가
+    public Disk2(int dep){ // ④
+       depth = dep;}
+    public int getdepth() { // ⑤ getter: get the value of depth with this method
+       return depth;}
+    public void setdepth(int dep) { // ⑥ setter: update the value of depth with this method
+      depth = dep;}
+    public int vol() {
+       return area()*depth; } // D. return area(this)* depth; } 수정
+   }
+public class DiskAccess {
+   public static void main(String argv[]) {
+      Disk2 d = new Disk2(8);
+      System.out.println("d width = " + d.width); // ⑦ public access
+      System.out.println("d height = " + d.height + ", area =" + d.area());   //  E. area(d) 수정 
+      d.setdepth(9); // ⑧ private access; call setter : update the value of depth
+      System.out.println ("d depth = " +d.getdepth()+ ", vol = "+d.vol());
+       } // Call getter
+   }
+   
+   
+   
+   
+   
+   1) 15 6 60 9 540
+   2) 15 6 90 9 810
+   3) 15 6 30 9 270
