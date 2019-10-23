@@ -243,5 +243,64 @@ public class temp1 {
 		}
 }
 
-//예제12
+//예제13
+package temp1;
+import java.util.Scanner; 
+
+public class temp1 {	
+		public static void main(String[] argv) {
+			Scanner scanner = new Scanner(System.in);
+			int dividend;
+			int divisor;
+			
+			System.out.println("나뉨수 입력");
+			dividend = scanner.nextInt();
+			System.out.println("나눗수 입력");
+			divisor = scanner.nextInt();
+			
+			try {
+				System.out.println(dividend + "를" + 
+			divisor +"로 나누면 몫은 "+dividend/divisor);}
+				catch(ArithmeticException e) {
+					System.out.println("0으로 나눌 수 없습니다");
+				}
+				finally {
+					scanner.close();
+				}
+			
+			
+	}
+}
+
+
+
+//예제14
+package temp1;
+import java.util.InputMismatchException;
+import java.util.Scanner; 
+
+public class temp1 {	
+		public static void main(String[] argv) {
+			Scanner scanner = new Scanner(System.in);
+		
+			System.out.println("정수 3개 입력");
+			int sum =0, n=0;
+			for(int i=0;i<3;i++) {
+				System.out.print(i+">>");
+				try {
+					n=scanner.nextInt();
+				}catch(InputMismatchException e) {
+					System.out.println("정수가 아님 다시 입력");
+					scanner.next();
+					i--;
+					continue;
+				}
+				sum+=n;
+			}System.out.println("합은 "+sum);
+			scanner.close();
+			
+	}
+}
+
+
 
