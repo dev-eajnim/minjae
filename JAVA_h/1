@@ -1,0 +1,69 @@
+package temp1;
+
+class Disk {//----------------------------------
+	public int width = 5;
+	public Disk() {}
+}
+
+class Disk1 extends Disk {//----------------------------------
+	protected int height = 6;
+	public Disk1() {}
+}
+//----------------------------------
+interface DiskAreaVol { // interface 선언
+	int area(); // 추상메소드, public abstract 생략
+	int vol(); // 추상메소드, public abstract 생략
+}
+//----------------------------------
+interface NoDisk extends DiskAreaVol {	//interface 상속
+	int count = 0;
+	int communication(); //추상메소드
+}
+
+abstract class Disk2 extends Disk1 implements NoDisk{ // 추상 메소드가 없는 추상 클래스 사용
+	public int depth = 7;
+	public Disk2() {}
+	public int area() {return this.width * this.height;}
+	public int vol() {return this.width * this.height * this.depth;}
+}
+
+class Disk3 extends Disk2 {
+	public Disk3() {}
+	public Disk3(int n) {}
+
+	public int communication() { return 1;}
+	public int count=100;
+ }
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~
+interface NoDisk {	//interface 상속
+	int count = 0;
+	int communication(); //추상메소드
+}
+//abstract class Disk2 extends Disk1 implements DiskAreaVol { //★
+//	public int depth = 7;
+//	public Disk2() {}
+//	public int area() {
+//		return this.width * this.height;
+//	}
+//	public int vol() {
+//		return this.width * this.height * this.depth;
+//	}
+//}
+//
+//class Disk3 extends Disk2 implements NoDisk {
+//	public Disk3() {}
+//	public Disk3(int n) {}
+//	public int communication() {return 1;}
+//	public int count = 100;
+//}
+//~~~~~~~~~~~~~~~~~~~~~~~~~~
+public class temp1 {
+	public static void main(String argv[]) {
+		Disk3 d = new Disk3(4);
+		System.out.println("area = " + d.area());
+		System.out.println("vol = " + d.vol());
+		System.out.println("noDisk = " + d.communication());
+		System.out.println("count = " + d.count);
+	}
+}
