@@ -1,0 +1,18 @@
+import spacy
+
+nlp = spacy.load('en')
+doc = nlp('''"Let's go th the N.Y.!"''')
+
+for token in doc:
+  print(token.text)
+
+Token = doc[0]
+
+----------------------------
+import spacy
+
+nlp = spacy.load('en')
+doc = nlp('Jonh and I went to the park')
+
+for token in doc:
+  print((token.text,token.pos_))
