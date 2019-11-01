@@ -1,0 +1,43 @@
+import numpy as np
+
+num_points = 2000
+vectors_set = []
+for i in range(num_points):
+    if np.random.random() > 0.5:
+        vectors_set.append([np.random.normal(0.0 , 0.9), np.random.normal(0.0 , 0.9)])
+    else:
+         vectors_set.append([np.random.normal(3.0 , 0.5), np.random.normal(1.0 , 0.5)])
+
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+
+df = pd.DataFrame({"x": [v[0] for v  in vectors_set],
+                   "y": [v[1] for v in vectors_set]})
+sns.lmplot("x", "y", data=df, fit_reg=False, height=6)
+plt.show()
+
+//자연어 처리
+from konlpy.tag import Kkma
+from konlpy.utils import pprint
+kkma = Kkma()
+pprint(kkma.sentences(u'네, 안녕하세요. 반갑습니다.'))
+pprint(kkma.nouns(u'KoNLPy는 한국어 정보처리를 위한 파이썬 패키지입니다.'))
+pprint(kkma.pos(u'''
+아름답지만 다소 복잡하기도한 한국어는 전세계에서 13번째로 많이 사용되는 언어입니다. 
+복잡미묘한 한국어 텍스트에서 유용한 특성을 추출하기 위해 그 동안 수많은 한국어 정보처리 도구가 개발되기도 했습니다.
+KoNLPy는 같은 기능을 하는 또 하나의 도구를 만들려는 것이 아닙니다. 
+그보다는, 현존하는 도구 위에 한 층을 쌓아 더 멀리 내다보려는 것입니다. 
+또한 KoNLPy는 파이썬 프로그래밍 언어로 사용할 수 있도록 만들어졌는데, 
+그것은 파이썬이 간결하고 우아한 문법구조, 강력한 스트링 연산 기능을 가지고 있을 뿐 아니라
+크롤링, 웹프로그래밍, 그리고 데이터 분석을 수행할 수 있는 다양한 패키지를 사용할 수 있는 언어이기 때문입니다.
+이 프로젝트에는 세 가지 철학이 있습니다:
+-사용법이 간단해야 한다.
+-누구나 쉽게 이용할 수 있어야 한다.
+-인터넷 민주주의는 효과적이다.
+'''))
+
+
+from konlpy.tag import Kkma
+kkma = Kkma()
+print(kkma.pos(u'뚜두뚜두는 블랙핑크의 노래에요'))
