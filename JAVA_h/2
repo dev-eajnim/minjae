@@ -1,0 +1,47 @@
+//2차원 배열을 이용하여 입력하고 다음과 같이 출력하는 프로그램을 작성하시오
+package temp2;
+import java.util.StringTokenizer;
+public class temp2 {
+	public static void main(String[] args) {
+			 
+			 String query = "name=aaa&addr=seoul#name=bbb&addr=Busan#name=ccc&addr=Daejun&age=26";
+			 StringTokenizer st = new StringTokenizer(query, "#");
+			 
+			 int n = st.countTokens();      // 분리된 토큰 개수
+			 System.out.println("토큰 개수 = " + n);
+			 
+			 String [][]arr = new String[3][3]; //토큰을 담을 이차원 배열 선언//
+			 int i=0;
+			 
+			 while(st.hasMoreTokens()) {
+				  String token = st.nextToken();   // 토큰 얻기
+			      System.out.println(token);     // 토큰 출력
+			      arr[i][0]=token;
+			      StringTokenizer st1 = new StringTokenizer(arr[i][0], "&");
+			      
+			      System.out.println("");
+			      
+			      int j=0;
+			      while(st1.hasMoreTokens()) { // 없으면 그냥 다음으로 넘어갑니다.
+			      String token1 = st1.nextToken();   // 토큰 얻기
+				  System.out.println(token1+"      ");     // 토큰 출력
+				  arr[i][j]=token1;
+				  j++;	}
+			      i++;
+			      System.out.println("-----------------------"); 
+			      }
+			  System.out.println();
+
+			  for(i=0;i<3;i++) {
+				  for(int j=0;j<3;j++) {// =제거
+					 
+					  if(arr[i][j]==null){//if (arr[i][j].equals(null)){
+						  System.out.print("  ");}
+					  else {
+						  String s[]=arr[i][j].split("=");
+					   	  System.out.print(s[1]+" ");}
+					  
+				  }System.out.println();
+			  }
+		}
+}
