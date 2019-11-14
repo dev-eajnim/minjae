@@ -1,0 +1,60 @@
+// 스택과 큐를 벡터로 구현하기
+// Vector형의 MyVec1을 추가하고 MyVec1의 내용을 S를 입력하면 그 내용을 스택의 방식으로 구현하는 코드를 작성하시오. 
+// 이 때 Q를 입력하면 큐 방식으로 구현된다.
+
+package temp2;
+import java.util.Scanner;
+import java.util.Vector;
+
+class Myvec1<T> {		
+	Vector <String> vec = new Vector<String>();
+		public void addE(String item) {
+			vec.add(item);
+		}
+		public String removeFirstE() {
+			System.out.println(vec.elementAt(0));
+			return vec.remove(0);
+		}
+		public String removeLastE() {
+			System.out.println(vec.elementAt(vec.size()-1));
+			return vec.remove(vec.size()-1);
+		}
+		public int noE() {
+			return vec.size();
+		}
+}
+public class temp2 {
+	public static void main(String[] args) {
+			
+			 Myvec1<String> myVec1 = new Myvec1<String>();
+			 
+			 Scanner scanner = new Scanner(System.in);
+						 
+			 System.out.println("도시를 입력하고 끝내려면 x를 입력하세요~");
+			 while(true){
+				 String ch = scanner.next();
+				 if(ch.equals("x")||ch.equals("X"))
+					 break;
+				 myVec1.addE(ch);
+				 }	 
+			 System.out.println("현재 객체 개수는 "+myVec1.noE()+"입니다");
+			 
+			 
+			 System.out.println("Stack은 S, Queue는 Q를 입력하세요~");
+			 String ch1 = scanner.next();
+			 
+			 int num=myVec1.noE();
+			 if(ch1.equals("s")||ch1.equals("S")) {
+				 for(int i=0;i<num;i++) {
+					 myVec1.removeLastE();	
+				 }
+			 }else if(ch1.equals("q")||ch1.equals("Q")) {
+				 for(int i=0;i<num;i++) {
+					 myVec1.removeFirstE();	 
+				 }
+			 }else
+				 System.out.println("잘못입력하셨습니다.");
+			 
+			 scanner.close();
+		}
+}
