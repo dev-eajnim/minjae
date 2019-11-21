@@ -1,3 +1,5 @@
+ 문제: 컨텐트팬에 배치관리자를 삭제하고 10개의 하트 버튼과 하트 레이블 을 출력하는 프로그램을 작성하시오.
+
 package temp1;
 import javax.swing.*;
 import java.awt.*;
