@@ -1,0 +1,102 @@
+package temp1;
+import javax.swing.*;
+import java.awt.*;
+public class NullContainerEx extends JFrame 
+{
+	public NullContainerEx(){
+		setTitle("하트 버튼 그리기"); 
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Container contentPane = getContentPane();
+		contentPane.setLayout(null)	; // 컨텐트팬의 배치관리자 제거 …. 
+		
+		
+		int i, j, n=5; 
+		for(i=0;i<n;i++) {   
+			for(j=0;j<n;j++) {
+				JButton b = new JButton(" ♥ ");
+				
+				if(i==0&&(j>=n/5&&j<=n/2-n/5)||i==0&& (j>=n/2+n/5&&j<=(n-1)-n/5)) 
+				{   
+					System.out.print("* "); 
+					b.setSize(50,20);
+					b.setLocation(j*90+70,i*90+90);
+					
+					contentPane.add(b);
+				}
+				else if(i>0&&i<=n/5&&(j==n/5-i||j==n/2+n/5-i|| j==n/2-n/5+i||j==(n-1)-n/5+i)) 
+				{
+					System.out.print("* "); 
+					b.setSize(50,20);
+					b.setLocation(j*70+100,i*70+100);
+					
+					contentPane.add(b);
+				}
+				else if((i>n/5 &&i<=n/2)&&(j==0||j==n-1)) 
+				{	System.out.print("* "); 
+				b.setSize(50,20);
+					b.setLocation(j*70+100,i*70+100);
+					
+					contentPane.add(b);
+				}
+				else if(i>n/2 &&(j==i-n/2||j==(n-1)-(i-n/2))) 
+				{
+					System.out.print("* "); 
+					b.setSize(50,20);
+					b.setLocation(j*70+100,i*70+100);
+					
+					contentPane.add(b);
+				}
+				else 
+					{	System.out.print("  ");}
+				} 
+			System.out.print("\n"); 
+			}  
+	//-------------------------------------------------------------------------------------------
+		for(i=0;i<n;i++) {   
+			for(j=0;j<n;j++) {
+				JLabel b = new JLabel(" ♡ ");
+				
+				if(i==0&&(j>=n/5&&j<=n/2-n/5)||i==0&& (j>=n/2+n/5&&j<=(n-1)-n/5)) 
+				{ 
+					b.setSize(50,20);
+					b.setLocation(j*90+370,i*90+390);
+					
+					contentPane.add(b);
+				}
+				else if(i>0&&i<=n/5&&(j==n/5-i||j==n/2+n/5-i|| j==n/2-n/5+i||j==(n-1)-n/5+i)) 
+				{
+					b.setSize(50,20);
+					b.setLocation(j*70+400,i*70+400);
+					
+					contentPane.add(b);
+				}
+				else if((i>n/5 &&i<=n/2)&&(j==0||j==n-1)) 
+				{	
+					b.setSize(50,20);
+					b.setLocation(j*70+400,i*70+400);
+					
+					contentPane.add(b);
+				}
+				else if(i>n/2 &&(j==i-n/2||j==(n-1)-(i-n/2))) 
+				{
+					b.setSize(50,20);
+					b.setLocation(j*70+400,i*70+400);
+					
+					contentPane.add(b);
+				}
+				else 
+				{	
+					JLabel la = new JLabel("   ");
+					la.setSize(50,20);
+					contentPane.add(la);
+				} 
+			System.out.print("\n"); 
+			}
+		setSize(800, 600);
+		setVisible(true); 
+	} }
+	public static void main(String[] args) { 
+		new NullContainerEx(); 	
+		}
+	}
+  
