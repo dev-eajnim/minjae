@@ -1,0 +1,35 @@
+//10-02
+//문자열, 이미지, 그리고 문자열과 이미지를 함께 가진 레이블 등 3개의 레이블을 만들어 출력하는 코드
+package temp2;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class LabelEx extends JFrame {
+	public LabelEx() {
+		setTitle("레이블 예제");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Container c = getContentPane();
+		c.setLayout(new FlowLayout());
+		
+		JLabel textLabel = new JLabel("자바 화이팅");
+		
+		ImageIcon img = new ImageIcon("사진/minjae.jpg");
+		JLabel imageLabel = new JLabel(img);
+		
+		ImageIcon icon = new ImageIcon("사진/minjae.jpg");
+		JLabel label = new JLabel("민제최고",icon,SwingConstants.CENTER);
+		c.add(textLabel);
+		c.add(imageLabel);
+		c.add(label);
+		
+		setSize(300,500);
+		setVisible(true);
+	}
+	public static void main(String[] args) {
+		new LabelEx();
+	}
+	}
+  
+  //label은 뜨는데 사진이 안들어가네, 경로를 어떻게 설정해줘야 할지 
