@@ -1,40 +1,54 @@
-//10-01
-//첫번재 버튼의 문자열에 폰트, 배경색, 글자색을 주고
-//두번째 버튼은 비활성화 시키고, 세번째 버튼은 위치와 크기를 출력
+//12-01
+//	fill1, fill2
+//	con1, con2
+// 5번씩 일을 시킴, 동시에 총 20개 일을 함
+// 채우는 일과 빼는 일을 함
+// barsize = 6 총 6칸
+// 20개가 동시에 코딩으로 들어감
+// fill이 빨리 채워지고, consum은 천천히 되게 gap을 줘야함
 package temp2;
-
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import javax.swing.*;
 
-public class JComponentEx extends JFrame {
-	public JComponentEx() {
-		super("JComponent의 공통 메소드 예제");
+class TimerThread extends Thread{
+	JLabel timerLabel;
+	public TimerThread(JLabel timerLabel) {
+		this.timerLabel = timerLabel;
+	}
+	
+	public void run() {
+		int n=0;
+		while(true) {
+			timerLabel.setText(Integer.toString(n));
+			n++;
+			try {
+				Thread.sleep(1000);
+			}catch(InterruptedException e) {return ;}
+			
+		}
+	}
+}
+public class ThreadTimerEx extends JFrame{
+	public ThreadTimerEx() {
+		setTitle("Thread 상속예제");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Container c = getContentPane();
 		c.setLayout(new FlowLayout());
 		
-		JButton b1 = new JButton("Magenta/Yellow Button");
-		JButton b2 = new JButton("Disabled Button");
-		JButton b3 = new JButton("getX(), getY()");
+		JLabel timerLabel = new JLabel();
+		timerLabel.setFont(new Font("Gothic",Font.ITALIC,80));
+		c.add(timerLabel);
 		
-		b1.setBackground(Color.YELLOW);
-		b1.setForeground(Color.MAGENTA);
-		b1.setFont(new Font("Arial",Font.ITALIC, 20));
-		
-		b2.setEnabled(false);
-		
-		b3.addActionListener(new ActionListner(){
-			public void actionPerformed(ActionEvent e) {
-				JButton b = (JButton)e.getSource();
-				setTitle(b.getX() +","+b.getY());
-			}
-		});
-		c.add(b1);c.add(b2);c.add(b3);
-		setSize(260,200); setVisible(true);
-	}
+		TimerThread th = new TimerThread(timerLabel);
+		setSize(250,150);
+		setVisible(true);
+		th.start();
+		try {
+			Thread.sleep(1000);
+		}catch(InterruptedException e) {return;}
+		th.interrupt();
 	public static void main(String[] args) {
-		new JComponentEx();
+			new ThreadTimerEx();		}
 	}
-	}
-  
-  // 근데 오류나고 실행이 안됨
+}
