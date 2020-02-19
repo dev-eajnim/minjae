@@ -26,6 +26,18 @@
 (6) dependencies {...}
 - 라이브러리와 같은 의존성 추가시 이곳에 작성합니다.
 
+1.5. 내가 원하는 구상
+OpenCV를 사용한다고 가정하면,
+
+1) Sobel Edge Detection등을 사용해 Edge를 추출합니다.
+2) 테스트를통해 적절한 노이즈와 Threshold값을 조정합니다.
+3) 이렇게 필터링 된 값이 사각형의 contour만 잡아주시면 됩니다.
+3-1) opencv에 아마 rectangle detection이라는 함수도 제공될겁니다. (전 사용해본적 없습니다)
+3-2) 프로그램처럼 정사각형 모양이 아닌 convex형태의 사각형도 만들고 싶다면 직접 함수를 만드셔야 할지도 모릅니다
+4) 만약 직접 직선형태의 엣지를 찾아 구현하고 싶으시다면 generalized hough transform을 찾아보세요 (이 역시 opencv에 라이브러리에 포함되어있습니다)
+
+첨부: '사진'이란 이름의 사진, 동그라미는 인식이 잘못되었을 때 유저가 직접 경계선을 잡아주는 것
+
 2.  실습
 1) 안드로이드 스튜디오를 실행하고, new >> empty activity 선택해서 프로젝트를 만듭니다. 
   - name:
@@ -33,5 +45,6 @@
   - language: java
   - minimum api level: 낮게 설정하면 빠르게 실행할 수 있습니다.
 
-2) 코끼리 있는 Gradle Scripts >> build gradle(Module:app)
+2) 코끼리 있는 Gradle Scripts >> build gradle(Module:app) >> dependencies 부분에 외부 라이브러리 추가해줍니다.
+
 
