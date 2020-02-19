@@ -1,5 +1,6 @@
-제목: 텐서플로우로 이미지인식 모바일앱 만들어보기 
-목적: 이미지인식 앱을 만들어서 어떤 식으로 구동되는지 구조를 파악하여 이미지에서 사각형 인식 기술을 높일 것이다
+제목: 안드로이드 스튜디오로 간단한 앱 만들어보기
+현재 목표: 안드로이드 강의를 듣고 안드로이드 스튜디오에 대해서 이해해보기
+나중 목표: 이미지인식 앱을 만들어서 어떤 식으로 구동되는지 구조를 파악하여 이미지에서 사각형 인식 기술을 높일 것이다
 
 1. 안드로이드 스튜디오 공부 및 기본 설명
 1) Gradle이란?
@@ -10,7 +11,7 @@
 - 모듈의 빌드 방법이 정의된 빌드스크립트입니다.
 - 빌드에 사용할 sdk버전부터 app버전, 사용하는 라이브러리 등 다양한 항목을 설정하는 것이 가능합니다.
 
-2) 내부옵션
+2) Gradle 내부옵션
 (1) apply plugin: 'com.android.application'
 - 안드로이드 플러그인 사용을 gradle에 적용하는 것이고, 이 옵션은 top-level에 선언되어야 합니다.
 (2) android {...}
@@ -26,11 +27,17 @@
 (6) dependencies {...}
 - 라이브러리와 같은 의존성 추가시 이곳에 작성합니다.
 
+3) manifests
+- app >> manifests: 앱의 환경설정을 코딩하는 곳입니다.
+4) activity_main.xml
+- app >> res >> layout>> activity_main.xml: 앱의 메인 화면을 코딩하는 곳입니다.
+- layout은 그 화면에 띄울 개체를 디자인하는 곳입니다.
+
 1.5.
-- 얼굴 인식 있는 카메라들은 학습된 데이터를 웹서버나 앱 내부에서 불러와 처리하는 방식
+- 얼굴 인식 있는 카메라들은 학습된 데이터를 웹서버나 앱 내부에서 불러와 처리하는 방식입니다.
 
 
-2.  실습
+2.  실습1: 하다가 포기
 1) 안드로이드 스튜디오를 실행하고, new >> empty activity 선택해서 프로젝트를 만듭니다. 
   - name:
   - package.name:
@@ -38,5 +45,30 @@
   - minimum api level: 낮게 설정하면 빠르게 실행할 수 있습니다.
 
 2) 코끼리 있는 Gradle Scripts >> build gradle(Module:app) >> dependencies 부분에 외부 라이브러리 추가해줍니다.
+
+2.5 실습: 간단한 앱구현
+0) emulator 연결 해놓아야 합니다.
+1) app >> res >> values >> style.xml 
+<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+// darkActionbar >> NoActionBar 로 변경했습니다
+//위에 상단바가 있었는데 사라졌습니다
+
+2) app >> res >> layout >>activity_main.xml >> 아래 text
+// 코드가 뜨지 않으면 아래 엑셀 sheet 창 같은게 design으로 되어 있는지 보고, text로 변경해줍니다.
+// design은 앱 디자인을 변경할 수 있습니다.
+<TextView
+      ..
+      android:text="minje.co.kr"
+      ../>
+      //text 부분을 바꾸면 내용이 변합니다.
+      //x,y위치를 바꾸려면 layout_constraintHorizontal_bias(x) , layout_constraintVertical_bias(y)
+
+3)  app >> res >> layout >>activity_main.xml >> 아래 design
+(창 왼쪽에 팔레트 부분)buttons > button 드래그해서 원하는 위치에 두고 배치
+(제일 오른쪽) 돋보기 검색창에 'text'검색해서 버튼의 이름 변경
+//여기서 글자랑 버튼이랑 겹쳐서 나오는 경우가 생김 
+//다시 text로 가서
+//윗 부분에 <androidx.constraintlayout.widget.ConstraintLayout
+//
 
 
