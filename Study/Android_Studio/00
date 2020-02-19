@@ -48,27 +48,56 @@
 
 2.5 실습: 간단한 앱구현
 0) emulator 연결 해놓아야 합니다.
-1) app >> res >> values >> style.xml 
-<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+1) 상단바제거
+(1) app >> res >> values >> style.xml 
+(2) <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
 // darkActionbar >> NoActionBar 로 변경했습니다
 //위에 상단바가 있었는데 사라졌습니다
 
-2) app >> res >> layout >>activity_main.xml >> 아래 text
+2) 내용변경
+(1) app >> res >> layout >>activity_main.xml >> 아래 text
 // 코드가 뜨지 않으면 아래 엑셀 sheet 창 같은게 design으로 되어 있는지 보고, text로 변경해줍니다.
 // design은 앱 디자인을 변경할 수 있습니다.
-<TextView
+(2)  <TextView
       ..
-      android:text="minje.co.kr"
+      android:text="내용바꿔~"
       ../>
-      //text 부분을 바꾸면 내용이 변합니다.
+      //text 부분을 바꾸면 내용이 변합니다. 내용바꿔~
       //x,y위치를 바꾸려면 layout_constraintHorizontal_bias(x) , layout_constraintVertical_bias(y)
 
-3)  app >> res >> layout >>activity_main.xml >> 아래 design
-(창 왼쪽에 팔레트 부분)buttons > button 드래그해서 원하는 위치에 두고 배치
-(제일 오른쪽) 돋보기 검색창에 'text'검색해서 버튼의 이름 변경
-//여기서 글자랑 버튼이랑 겹쳐서 나오는 경우가 생김 
-//다시 text로 가서
-//윗 부분에 <androidx.constraintlayout.widget.ConstraintLayout
-//
+3) 버튼생성
+(1) app >> res >> layout >>activity_main.xml >> 아래 design
+(2) (창 왼쪽에 팔레트 부분)buttons > button 드래그해서 원하는 위치에 두고 배치
+(3) (제일 오른쪽) 돋보기 검색창에 'text'검색해서 버튼의 이름 변경
+//돋보기를 못찾겠다면 palette를 다시 눌러봅니다.
+//여기서 글자랑 버튼이랑 겹쳐서 나올 수 있습니다.
+//그럼 그냥 Preview 부분(제일 오른쪽에 있는 창) 마법봉을 눌러주면 됩니다. 
+//parent !! 제가 아까 다른 걸 시도해보다가 그 줄이 사라져서 오류가 났던 거 같습니다. 시간아깝네요.
+##위치가 계속 이상하다. preview화면과 다르게 나옴##
+
+4) 버튼이벤트 생성(버튼 누르면 구글홈페이지로 이동)
+(1) activity_main.xml 페이지에
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+    //아래부분을 추가했습니다. onButtonAlzioClicked 대신 이벤트명 원하는대로 적어주세요.
+    public void onButtonAlzioClicked(View v){
+        Toast.makeText(getApplicationContext(),"구글 홈페이지로 가자",Toast.LENGTH_LONG).show();
+                                                //페이지가 넘어갈 때 이 메세지가 등장합니다. "구글 홈페이지로 가자" 원하는대로 적어주세요.
+        Intent alzioIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://google.com"));   //<--이 주소로 이동합니다.
+        startActivity(alzioIntent);
+    }
+}
+(2) 
+<Button 
+    ... //아래부분을 추가했습니다.
+     android:onClick="onButtonAlzioClicked"
+    .../>
+
 
 
