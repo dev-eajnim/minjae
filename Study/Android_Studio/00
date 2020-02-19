@@ -47,7 +47,7 @@
 2) 코끼리 있는 Gradle Scripts >> build gradle(Module:app) >> dependencies 부분에 외부 라이브러리 추가해줍니다.
 
 2.5 실습: 간단한 앱구현
-0) emulator 연결 해놓아야 합니다.
+0) emulator 연결 해놓아야 합니다. AVD!~
 1) 상단바제거
 (1) app >> res >> values >> style.xml 
 (2) <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -98,6 +98,20 @@ public class MainActivity extends AppCompatActivity {
     ... //아래부분을 추가했습니다.
      android:onClick="onButtonAlzioClicked"
     .../>
+    
+   
+5) 궁금한 사항 정리
+(1) 안드로이드 Layout클래스: View 위젯들을 화면에 배치하는 과정에서 위젯 위치 정렬하거나 그룹화하는 역할입니다.
+## 이 부분 이해가 잘 안되니까 더 찾아보기!
+ android:layout_width="wrap_content" : content만큼의 사이즈로 자동으로 조절하는 것입니다.
+ android:layout_width="match_parent" : parent에게 맞춰라, 버튼 바깥쪽에 있는 RelativeLayout에 맞추는 것입니다.
+ 
+ app:layout_constraintStart_toStartOf="parent"
+ app:layout_constraintTop_toTopOf="parent"
 
-
-
+-----부모를 기준으로 위치를 중앙에 잡아주는 코드, constraint layout 내부에서 사용 -----
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintLeft_toLeftOf="parent"
+app:layout_constraintRight_toRightOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+-------------------------
