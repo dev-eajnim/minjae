@@ -26,6 +26,7 @@ Intent Filter: 다양한 인텐트를 필터링하여 원하는 기능만 수행
 - 개발환경으로 이클립스(자바)를 사용합니다. 
 
 3) 설명
+
 - res: 레지스토리
 - layout: 화면 구성하는 파일
 - xml: 쌍을 맞춰주면 됩니다. 태그를 열면 태그(/>)를 닫아주면 됩니다.
@@ -205,7 +206,71 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 }
 @@ 이 부분들에서 계속 v.getid()를 찾고 있습니다.
-같은 게 반복되면 안좋은 냄새가 나는 것입니다. 그래서 코드를 조금 수정하도로 하겠습니다.
 
-6) 
+6) 같은 게 반복되면 안좋은 냄새가 나는 것입니다. 그래서 코드를 조금 수정하도로 하겠습니다. 
+public void onClick(View v) {
+        int id = v.getId(); // v.getId() 이것은 인트형 자료입니다.
+
+        if(id==R.id.button1){ @@
+            Log.d("MainActivity","ONCLICK! Button1");
+        }else if(id ==R.id.button2){   @@
+            Log.d("MainActivity","ONCLICK! Button2");
+        }
+    }
+    
+ 7) this를 사용하지 말아보자. >> new View.OnClickListener(){}
+ 아래를 추가하면 코드가 길어집니다. 
+ 익명 클래스를 사용할 때는 그 안에 코드가 짧을 때 사용하면 좋습니다. 
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        Button button1 = findViewById(R.id.button1);
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("MainActivity","ONCLICK! Button1");
+            }
+        });
+
+        Button button2 = findViewById(R.id.button2);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("MainActivity","ONCLICK! Button2");
+            }
+        });
+    }
+}
+
+8) 별도 메소드로 뺄 수도 있습니다.
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        Button button1 = findViewById(R.id.button1);
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                logButton();    @@
+            }
+        });
+
+        Button button2 = findViewById(R.id.button2);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("MainActivity","ONCLICK! Button2");
+            }
+        });
+    }
+    private void logButton(){   @@
+        Log.d("MainActivity","ONCLICK! Button1");
+    }
+}
+
 
