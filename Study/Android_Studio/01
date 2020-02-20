@@ -39,13 +39,17 @@ Intent Filter: 다양한 인텐트를 필터링하여 원하는 기능만 수행
 
 
 #나의 첫 안드로이드: 안드로이드 기초부터 실습까지__2
-1. java >> MainActivity 파일
+1. java >> MainActivity 파일 
 - res >>activity_main.sml 파일을 화면에 보여줍니다.
 - 버튼을 놓고 텍스트는 res에서 작업하지만, 나머지 로직은 java에서 작업합니다.
 - 이 두개의 파일을 연결하는 방식은 onCreate에서 만들어줘야 합니다. 
 - R.layout.activity_main: 리소스에서 레이아웃 폴더에 있는 activity_main이라는 xml파일을 찾으세요.
+- 파일이름 없으면 파일 ctrl c, v 해서 만들어주면 됩니다.
 
-2. 
+2. res >> layout >> activitiy_main.xml
+- constraintlayout: layout의 종류는 많습니다. 어떻게 배치할지 설정하는 레이아웃입니다. 이에 따라 화면 구성이 달라집니다.
+- 텍스트나 드래그해서 만들어줄 수 있습니다.
+
 
 
 
