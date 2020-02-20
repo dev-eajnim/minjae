@@ -273,4 +273,23 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 
+4. 단축키
+1) ctrl Alt l(엘) : 코드 예쁘게 정렬해줍니다.
+2) 자동임포트 설정import
+file > other settings > defalut setting > auto import > 
+java에 있는 Add unambiguous imports on the fly를 체크해줍니다. 
+
+
+5. 
+- R.id.button1에서 xml에 있는 걸 사용하는것에 궁금증을 느껴야 합니다. 
+- build가 자바 파일을 만들어서 R. 이런 것들을 만들어줍니다.
+- 그 경로를 찾아가 봅시다. 경로로 보려면 왼쪽 창에 안드로이드 역삼각형을 눌러서 프로젝트로 바꿔주면 됩니다.
+- 프로젝트/app/build/generated/source/r/debug/kr/co/hanbit(현재프로젝트)/firstapp/
+- 가다보면 R.이라는 클래스가 있데, 근데 난 없어. 여기는 do not modify, 수정이 안됩니다.
+- 그 파일을 보면 final 이라고 되어있는 것들이 있는데 final은 수정이 안됩니다.
+- 여튼 id, 이미지 파일 모두 int형!! 이것만 기억하면 됩니다.
+
+6. 이미지를 선언하여 사용하는 방법
+1) app > main > res > drawable 에 원하는 사진을 넣습니다.
+2) MainActivity.java에서 코드를 작성해줍니다.
 
