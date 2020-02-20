@@ -292,4 +292,8 @@ java에 있는 Add unambiguous imports on the fly를 체크해줍니다.
 6. 이미지를 선언하여 사용하는 방법
 1) app > main > res > drawable 에 원하는 사진을 넣습니다.
 2) MainActivity.java에서 코드를 작성해줍니다.
+public class MainActivity extends AppCompatActivity { //이 안에 작성해줍니다.
 
+    int[] drawables = {R.drawable.cu_01, R.drawable.cu_02};
+    // 이미지를 보여주기려면 int라는 배열로 선언해줘야 합니다!!
+    // 선언만 해서 저장하고 보여주지는 못한 거 같다.
