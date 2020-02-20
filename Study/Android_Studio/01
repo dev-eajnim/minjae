@@ -143,6 +143,63 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.d("MainActivity","ONCLICK!");
     }
 }
-3) 만약 버튼이 2,3개라면 어떻합니까?
+5) 만약 버튼이 2,3개라면 어떻합니까?
+- xml에서 버튼 추가하고 화살표로 간격설정 잘해주기
+##activity_main.xml##
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3"
+        app:layout_constraintVertical_bias="0.227" />
 
+    <Button1
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button1"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.483" />
 
+    <Button2
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="333dp"
+        tools:ignore="MissingConstraints" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+##MainActivity.java##
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        Button button1 = findViewById(R.id.button2);
+        button1.setOnClickListener(this);
+
+        Button button2 = findViewById(R.id.button3);
+        button2.setOnClickListener(this);
+    }
+    @Override
+    public void onClick(View view) {
+        if(view.getId()==R.id.button2){
+            Log.d("MainActivity","ONCLICK! Button1");
+        }else if(view.getId() ==R.id.button3){
+            Log.d("MainActivity","ONCLICK! Button2");
+        }
+    }
+}
