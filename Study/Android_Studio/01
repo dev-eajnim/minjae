@@ -197,10 +197,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     @Override
     public void onClick(View v) {
-        if(v.getId()==R.id.button1){
+        if(v.getId()==R.id.button1){  @@
             Log.d("MainActivity","ONCLICK! Button1");
-        }else if(v.getId() ==R.id.button2){
+        }else if(v.getId() ==R.id.button2){  @@
             Log.d("MainActivity","ONCLICK! Button2");
         }
     }
 }
+@@ 이 부분들에서 계속 v.getid()를 찾고 있습니다.
+같은 게 반복되면 안좋은 냄새가 나는 것입니다. 그래서 코드를 조금 수정하도로 하겠습니다.
+
+6) 
+
