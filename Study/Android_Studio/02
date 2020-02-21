@@ -14,8 +14,83 @@
 - 우클릭까지 하고 > new > 아래 안드로이드 모양의 Activity > Empty 하면 xlm파일까지 같이 만들어집니다.
 - 그럼 java 2개 xml 2개 입니다. main에서 new를 띄우기 위해 MainActivity로 갑니다.
 - 이제 메인으로 가서 액티비티를 실행해주는 코드를 작성합니다.
+public class NewActivity extends AppCompatActivity {
+    //1. 꼭 상속을 받아야 하고,
+    //2. OnCreate라는 메소드를 만들어야 합니다
+    //3. 레이아웃을 연관시켜야 합니다.
 
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_new);
+    }
+}
 액티비티, 서비스 브로드캐스트는 반드시 androidmanifest.xml에 추가해야합니다.
 나머지는 안해도 됩니다. 세스먼트, 설정은 여기에 선언해줘야 합니다.
-생명주기 모델 중요합니다.
 
+- 생명주기 모델 중요합니다.
+- 엑티비티 시작 > onCreate(), onStart(), onResume()순서대로 실행이 되고 액티비티를 실행됩니다.
+onPause()에서 다시 onResume()으로 가서 시작됩니다. 화면이 사라졌을 때는 onPause()가 실행됩니다.
+onStop()
+
+2) 로그 추가하는 방법 설명
+- d를 쓴이유는 debug의미입니다.
+- 로그는 개발자가 남깁니다. 그래서 개발자가 로그를 잘 남기지 않으면 에러찾을 때 어려워집니다.
+(1) 로그 종류
+- e Error: 심각한 문제가 발생했을 때 남기는 로그
+- w Warning: 심각하지는 않지만 나중에 문제의 소지가 있을 수 있어서 남기는 로그
+- i Info:정보를 처리하면서 발생하는 진행과정들을 모니터링하기 위한 목적을 ㅗ남기는 로그
+- d Debug: 디버깅 목적으로 문제 발생 가능성이 있는 곳에 남기는 로그
+- v Verbose: 동작 여부를 최대한 자세히 살표볼 목적으로 남기는 로그
+- e,w,i,d,v,를 적절한 상황에 적절하게 사용해줘야 합니다.
+
+3) 위젯
+- 위젯, 뷰 동일한 이름인데 클래스 입장에서는 다 뷰입니다.
+- 안드로이드의 최상위 클래스는 오브젝트입니다. 
+- 레이아웃은 배치에 관련된 것, 컨테이너는 더 큰 것을 담는 것입니다.
+- layout_width
+- layout_height
+- auto-ink
+- textcolor: RGB값, ff최대, 00최소
+- lines
+1) 
+- wrap_content
+- match_parent: 상위 컨테이너나 레이아웃에 맞춥니다.
+- andriod:textSize="12sp":  scale pixel 
+- dp: dencety independent
+- 색깔 RGB인데 앞에 투명을 설명할 수 있습니다. #44로 시작하면 좀 투명해집니다.
+- button android:visibility="invisible,gone"을 사용하면 유용하게 쓸 수 있습니다.
+
+- 해당 파일의 위치를 알고 싶으면 젤 왼쪽 창 안드로이드 옆에 초점 맞추는 돋보기 눌러주면 됩니다. 
+- android:text="@string/hello" 이렇게 해서 참조해줍니다. 
+
+3) edit text가 textview와 가장 다른 점은? 입력할 수 있다는 것입니다.
+(1) gravity: 배치하는 속성 align대신 이걸 씁니다.
+- center
+- center_vertical: 높이에서 중앙배치
+- center_horizontal
+- bottom:center_horizontal: 같이 쓰면내려갑니다
+- start(top): 왼쪽
+- end: 오른쪽
+(2) iput type
+- 어던 형식으로 넣을 수 있게해줍니다. phone, date, time
+
+
+(3) Button 
+andriod:textAllCAps ="false 대문자로 나오는게 디폴트 기본 값입니다.
+ - 버튼의 마진과 패딩을 적절히 사용해서 만들어야 합니다.
+ 
+(4) 이미지
+- scale type을 어떻게 설정하느냐에 따라서 이미지 배치가 달라집니다.
+- 이미지를 src를 통해 버튼에 넣을 수 있습니다.
+- <ToggleButton : on, off, checkbox처럼 누르고 안 누르고 차이가 있는 것을 표현할 수 있습니다.
+- switch도 사용가능합니다.
+- 라디오 버튼
+
+(5) Progress Bar
+- 동그랗게 or 직선
+
+(6)SeekBar
+ - thumb
+ - SecondaryProgress: 권장
+ - tint들어가면 색상
