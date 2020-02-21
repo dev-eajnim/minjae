@@ -94,3 +94,20 @@ andriod:textAllCAps ="false 대문자로 나오는게 디폴트 기본 값입니
  - thumb
  - SecondaryProgress: 권장
  - tint들어가면 색상
+- set, on, seek, view 이것만 찾으면 됨
+
+(7) <RatingBar
+- rating: 볓 몇개줄거?
+- numstart: 별몇개?
+- stepsize: 사이즈 스텝
+
+-get, set, is만 알아도 좋다
+
+(8) <Spienear, 스피너
+- 실습해봐야 합니다. 
+
+(9) <DatePiker
+- 1월은 0!
+
+
+
