@@ -1,1 +1,16 @@
+나의 첫 안드로이드:안드로이드 기초부터 실습까지_3
+0. 서론
+에러가 나면 logcat을 보고, 그 에러 메세지 중에서 튀어나온 메세지만 보면 됩니다.
 
+1. 본론
+1) Activity
+- 액티비티는 사용자가 반응을 해야 나타납니다.
+(1) 만드는 방법1
+- app > java > 중에서 제일 위에 있는 파일 > 우클릭 > new > java
+- Name: New Activity
+- activity, service, broadcastreceiver 등은 상속을 해줘야 실행이 됩니다.
+
+(2) 만드는 방법2
+- 우클릭까지 하고 > new > 아래 안드로이드 모양의 Activity > Empty 하면 xlm파일까지 같이 만들어집니다.
+
+그럼 java2개 xml2개 입니다.
