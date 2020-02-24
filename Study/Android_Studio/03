@@ -43,5 +43,15 @@ Design탭 누르면 Attributes 창이 뜨고 거기서 layout을 통해 상하�
 - cardElevation: 카드 주변 음영그림자에 대한 값입니다. 값이 커질수록 (2>4>8) 더 진한 그림자가 생깁니다.
 - contentPadding: 겉부분, 패딩 값입니다.
 - 텍스트 대신 이미지를 넣을 수도 있습니다. 같이 넣을 수도 있습니다.
-(4) 
+- 바깥쪽에 카드 모양을 만들어주는 것 뿐입니다.
+(4) RecyclerView
+- 어렵기도 하지만 중요합니다. 이전에 리스트뷰나 그리드뷰를 사용했었는데 바꼈습니다. 속도 문제가 생겨서 더 좋은 리사이클러뷰를 만들었습니다.
+- 레이아웃과 관련된 매니저들을 제공합니다.customizing도 더 쉽습니다.
+- LinearLayoutManager, GridLayoutManager, 
+- adapter 어딘가에 있는 데이터와 리사이클러뷰와 연결하는게 adapt입니다. 리사이클러뷰는 보여주는 것만 합니다.
+- LinearLayoutManager: 아래로 배치
+- GridLayoutManager: 격자 모양
+- Staggered Grid: 엇박자로 배치
 (5)
+
+
