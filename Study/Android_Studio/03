@@ -1,0 +1,25 @@
+나의 첫 안드로이드_4
+
+1) 툴바(==앱바): 앱 상단에 떠있는 것
+- 상단에 놓을 수도 있고 하단에 놓을 수도 있습니다.
+- Action icons
+- Menu icon
+- Nav icon
+
+2) 레이아웃: 화면 배치
+(1) Frame layout : 왼쪽 상단으로 위젯을 배치한다.
+- 첫번째는 두번째 아래로 들어갑니다.쌓아올리는 것,
+(2) Linear layout: 수평 수직으로 배치할 수 있는 레이아웃입니다.
+- orientation
+- 가중치: 크기를 다르게 하겠다.
+- weightSum, layout_weight
+(3) Relative layout: 상대적, 위젯 하나를 배치하면 나머지를 그 오른쪽, 아래에 배치하겠다라는 말들입니다.
+- layout_alignParent
+- layout_above
+- layout_below
+- layout_toStartof, start는 왼쪽
+- layout_toEndof, end는 오른쪽
+(4)Table layout: 격자배치입니다.자리 차지하는 공간은 똑같습니다.
+- <TableRow> 에서 사용합니다.
+- stretchColumns ="*" > "1": 다 늘려라, 첫번째를 늘려라 이런 뜻입니다.
+(5) 
