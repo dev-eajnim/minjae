@@ -22,4 +22,26 @@
 (4)Table layout: 격자배치입니다.자리 차지하는 공간은 똑같습니다.
 - <TableRow> 에서 사용합니다.
 - stretchColumns ="*" > "1": 다 늘려라, 첫번째를 늘려라 이런 뜻입니다.
-(5) 
+Design탭 누르면 Attributes 창이 뜨고 거기서 layout을 통해 상하좌우 조정이 가능합니다. ㅋㅋㅋㅋ
+
+3) 뷰 컨테이너
+(1) 스크롤 뷰
+- 반드시 하나의 스크롤뷰 안에는 하나의 뷰(텍스트,버튼, 컨테이너..)만 들어가야 합니다!
+- 뷰의 종류는 많습니다. 
+<ScrallView>
+  <Linearlayout>
+- HorizontalScrallview : 오른쪽으로 배치
+(2) 라디오 그룹
+- 라디오 그룹 미적용: 여러 개 선택 가능
+- 라디오 그룹 적용: 여러 개 선택 불가능
+- 레이아웃이 필요하니까 레이아웃이 가장 밖에 있고, 그 안에 라디오 그룹 넣고, 라디오 버튼을 여러개 배치합니다. 
+(3) Cardview 중요!
+- cardview를 import 선언해줘야합니다.
+- implementation 'com.android.support:cardview-v7:27.1.1' 이건 오류나긴 하지만 이렇게 넣어줘야 합니다.
+- ctrl alt l 정렬!
+- cardCornerRadius: 카드 사각형 끝을 둥글게 만듭니다.
+- cardElevation: 카드 주변 음영그림자에 대한 값입니다. 값이 커질수록 (2>4>8) 더 진한 그림자가 생깁니다.
+- contentPadding: 겉부분, 패딩 값입니다.
+- 텍스트 대신 이미지를 넣을 수도 있습니다. 같이 넣을 수도 있습니다.
+(4) 
+(5)
