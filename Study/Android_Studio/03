@@ -52,6 +52,12 @@ Design탭 누르면 Attributes 창이 뜨고 거기서 layout을 통해 상하�
 - LinearLayoutManager: 아래로 배치
 - GridLayoutManager: 격자 모양
 - Staggered Grid: 엇박자로 배치
-(5)
 
+<1> RecyclerView 실습
+1)
+build.gradle > Module:app
+dependencies에 마우스를 올리면 느낌표가 뜹니다. 거기서 add > cyclerview 를 추가합니다. implement
+(참고: https://m.blog.naver.com/PostView.nhn?blogId=pistolcaffe&logNo=221010983726&proxyReferer=https%3A%2F%2Fwww.google.com%2F)
+그 후에 sync 확인해줍니다.
 
+실습못하겠엉 ㅠ 오류나는데 해결이 안되서
