@@ -1,6 +1,7 @@
 Android Studio 구조 및 동작 원리
 
 1. app
+* 모듈: 프로그램을 구성하는 구성 요소의 일부로써 어플이나 라이브러리를 구성하는 최소단위입니다. 
 1) manifests(명확한)
 - 어플의 기본 정보를 담고 있는 xml파일입니다.
 - 어플의 이름, 메인 아이콘 이미지, 어플 버전
@@ -43,16 +44,55 @@ Android Studio 구조 및 동작 원리
 
 
 
-
 2. gradle
 - gradle은 의존성 기반의 프로그래밍 언어이다.
 - 태스크를 정의하고, 태스크들 사이의 의존성도 정의할 수 있다.
 - 태스트들이 의존성의 순서에 따라 실행되고, 오직 한 번만 실행될 것임을 보장한다.
 
+
+
 3. 과정 및 원리
 - xml에서 선언,java에서 내용구성
-- 
+1) 프로젝트 구성
+- Android Studio + Android SDK
+- libs, src, res, values, build.gradle, settings.gradle
 
-<img src="https://user-images.githubusercontent.com/55788528/75219054-20553500-57df-11ea-92bc-5005b45fb6ae.jpg" width="90%"></img>
+2) 소스 컴파일
+- javac compiler
+- .class
+- libraries
+- de tool
+- Resource processing
+
+3) 패키징
+- gradle,
+
+
+
+4. 기타
+1) 새로운 액티비티 --> 실행
+: onCreate() > onStart() > onResume()
+위의 순서대로 메소드가 실행
+
+2) 실행 --> 일시정지
+onPause()
+
+3) 일시정지 --> 실행
+onResume()
+
+4) 일시정지 --> 중지
+onStop()
+
+5) 중지 --> 실행
+onRestart()
+onStart()
+onResume()
+
+6) 중지 --> 소멸
+onDestroy()
+
+
+
+
 
 
