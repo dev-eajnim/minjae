@@ -53,4 +53,5 @@
   3) Batch normalization 사용
   4) U-net처럼 UpConv를 통해 Low-level특징을 집계하여 예측
   
-  
+  ![OCR_Ground truth](https://user-images.githubusercontent.com/55788528/75320495-2405bc00-58b2-11ea-8f15-cff8730dc4c7.jpg)
+
