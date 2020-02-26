@@ -1,3 +1,6 @@
+![OCR_Ground truth](https://user-images.githubusercontent.com/55788528/75320495-2405bc00-58b2-11ea-8f15-cff8730dc4c7.jpg)
+
+
 # Craft 논문
 (Character Region Awareness for Text Detection)
 (딥러닝 리반 ocr study)
@@ -52,6 +55,5 @@
      - Craft 모델 출력은 classification이 아닌 image 형태 이기 때문에 기존 VGG-16을 FullyConvNet으로 변형해 사용한다.
   3) Batch normalization 사용
   4) U-net처럼 UpConv를 통해 Low-level특징을 집계하여 예측
-  
-  ![OCR_Ground truth](https://user-images.githubusercontent.com/55788528/75320495-2405bc00-58b2-11ea-8f15-cff8730dc4c7.jpg)
+
 
