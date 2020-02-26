@@ -9,5 +9,41 @@
 - 모델의 목적은 입력으로 사용한 이미지에 대해 '픽셀'마다 Region score, Affinity score을 예측하는 것입니다.
 
 - Region score: 해당 픽셀이 문자(character)의 중심일 확률을 의미합다.
+  >> 각 픽셀이 문자 중심에 가까울수록 확률은 1에 가갑고, 문자 중심에서 멀수록 확률이 0에 가깝도록 예측하는 모델
 - Affinity score: 해당 필셀이 인접한 두 문자의 중심일 확률을 의미합니다. 이 점수를 기반으로 개별 문자가 하나의 단어로 그룹화될 것인지가 결정됩니다.
+  >> 각 픽셀이 인접한 문자의 중심에 가까울 확률
+  
+  * 예상 질문들
+  - 모델은 어떤 구조?
+  - 모델은 어떤 방식으로 학습? 목적함수는?
+  - Region score, Affinity score 두 점수로 QuadBox, Polygon을 어떻게 도출?
+  - 인접한 두 문자의 중심이란?
+  - 입력에 대한 기대 정담(Ground Truth) 어떻게 만들어?
+  - 기존 방식보다 어떤 점이 더 유용한가?
+  
+2. Craft 신경망 구조의 특징
+  1) Fully Convolutional network architecture(FCN)
+     - Segmentation (분할): 모든 픽셀의 레이블을 예측
+     (1)
+     - 기존의 classification model 의 fc layer를 [convolution layer]로 바꾸었습니다. (convolutionalization)
+     - fc layer(기존)는 단순해 tabby cat 이라는 하나의 class로 분류될 score정보만을 출력해 주었다면, 
+       convolutionalization을 거친 아래의 모델은 conv layer를 사용했으므로 [위치정보나 class에대한 정보 또한 잃어버리지 않고 있다.]
+     - 일정한 크기의 input을 요하는 fc layer와는 다르게 
+       conv layer는 filter의 크기만 맞다면 어떠한 input이 오더라도 수용할 수 있어서 [input의 크기에 제약을 받지 않는다.]
+     (2) Segmentation Architecture
+     - deconvolution 이라는것은 upsampling 방법으로 convolution의 역 연산이다.  
+       [convolution은 feature를 추출해내면서 크기를 줄여나가는 역할]이였다면, 
+       [deconvolution은 추출된 feature의 정보로부터 크기를 키워주는 역할]을 한다.
+     - upsample stride 가 32라면 feature map 의 정보 하나를 32개로 늘려놓는다는 것이다. 
+       이런식으로 원래의 크기대로 복원시켜 segmentation된 output을 얻겠다는 것이다
 
+  2) VGG-16 기반
+     - 총 16개의 레이어로 구성
+     - 3 x 3 필터 사용
+     - ReLU함수 사용
+     - Stride, Padding은 각각 1
+     - Craft 모델 출력은 classification이 아닌 image 형태 이기 때문에 기존 VGG-16을 FullyConvNet으로 변형해 사용한다.
+  3) Batch normalization 사용
+  4) U-net처럼 UpConv를 통해 Low-level특징을 집계하여 예측
+  
+  
