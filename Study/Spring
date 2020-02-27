@@ -27,7 +27,7 @@
     대한민국 공공기관의 웹 서비스 개발 시 사용을 권장하고 있는 전자 정부 표준 프레임워크의 기반 기술
   
   2) 스프링 목표
-    (1) POJO 기반의 Enterprise Application 개발을 쉽고 편하게 할 수 있도록 한다.
+    ★ (1) POJO 기반의 Enterprise Application 개발을 쉽고 편하게 할 수 있도록 한다.
       * POJO(Plain Old Java Object): 상속, 인터페이스가 필요 없는 아주 단순하고 가벼운 객체를 의미한다.
         - 오래된 방식의 간단한 자바 오브젝트
         - 그러니까 extends, implements를 없애고 대신 어노테이션(Annotatino)을 사용함으로써 의존도를 낮췄다는 거야!!
@@ -52,9 +52,11 @@
      [여러 곳에서 공통적으로 쓰이는 기능들을 분리(공통 관심사를 분리)하여 개발]하고 
       실행 시에 서로 조합할 수 있는 AOP를 지원한다.
     - 횡단 관심을 수행하는 코드(Logging, Security, Transaction 등)는 aspect라는 특별한 객체로 모듈화하고 
-      weaving이라는 작업을 통해 모듈화한 코드를 핵심 기능에 끼워넣을 수 있다.
+      weaving이라는 작업을 통해 모듈화한 코드를 핵심 기능에 끼워넣을 수 있다
       참고: https://gmlwjd9405.github.io/2018/07/05/oop-solid.html
-  3) Portable Service Abstraction: 이식 가능한 서비스 추상화
-    - 완성도가 높은 라이브러리와 연결할 수 있는 인터페이스를 제공한다.
-    - 다른 프레임 워크들과의 통합을 지원한다.
+  3) PSA(Portable Service Abstraction): 이식 가능한 서비스 추상화
+    - 완성도가 높은 라이브러리와 연결할 수 있는 인터페이스를 제공한다
+    - 다른 프레임 워크들과의 통합을 지원한다
+    - 환경의 변화와 관계없이 일관된 방식의 기술로의 점ㅂ근 환경을 제공하려는 추상화 구조
+    * Portable: 가지고 다닐 수 있는
 
