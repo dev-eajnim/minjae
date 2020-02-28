@@ -13,7 +13,6 @@ h, w, _ = img_sample.shape
 crop_sample = img_sample[int((h-w)/2):int(-(h-w)/2), :]   
 resized_sample = pyramid_reduce(crop_sample, downscale=4)  
   #pyramid_reduce(img,r) - 이미지를 r배만큼 축소하고 normalize
-print('crop',crop_sample.shape,'resized',resized_sample.shape)    
   #crop_sample.shape (178.178.3) resized_sample.shape(45.45.1)
 
 pad = int((crop_sample.shape[0] - resized_sample.shape[0]) /2)   #66
