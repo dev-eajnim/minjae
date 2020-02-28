@@ -1,0 +1,44 @@
+# 해상도 높여주는 코드 
+
+~~앞부분~~
+
+img_sample = cv2.imread(os.path.join(img_base_path, eval_list[0][0]))
+
+print(type(img_sample))
+#타입 알려주는 거:class numpy.nparray 배열이네
+
+h, w, _ = img_sample.shape 
+#218,178,3
+
+crop_sample = img_sample[int((h-w)/2):int(-(h-w)/2), :]   
+resized_sample = pyramid_reduce(crop_sample, downscale=4)  
+  #pyramid_reduce(img,r) - 이미지를 r배만큼 축소하고 normalize
+print('crop',crop_sample.shape,'resized',resized_sample.shape)    
+  #crop_sample.shape (178.178.3) resized_sample.shape(45.45.1)
+
+pad = int((crop_sample.shape[0] - resized_sample.shape[0]) /2)   #66
+
+padded_sample = cv2.copyMakeBorder(resized_sample, top=pad, bottom=pad, left=pad, right=pad,borderType=cv2.BORDER_CONSTANT, value=(0,0,0))
+
+print('resized_sample.shape',resized_sample.shape)
+# 김민제 (45,45,1)
+# 교수님 (45,45,3) 
+
+print(crop_sample.shape,padded_sample.shape)     
+# 김민제 (178,178,3) (177,177)
+# 교수님 (178,178,3) (177,177,3)   
+# 정답   (178,178,3) (178,178,3)
+ 
+
+# plt.figure(figsize=(12, 5))
+# plt.subplot(1, 4, 1)   
+# plt.imshow(img_sample)
+# plt.subplot(1, 4, 2)
+# plt.imshow(crop_sample)
+# plt.subplot(1, 4, 3)   
+# plt.imshow(resized_sample)  # 이부분이 오류가 납니다
+# plt.subplot(1, 4, 4)
+# plt.imshow(padded_sample)
+
+plt.figure(figsize=(12,5))
+plt.imshow(resized_sample)
