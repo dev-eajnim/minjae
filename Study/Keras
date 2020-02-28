@@ -223,3 +223,5 @@ model = Model(inputs=inputs, outputs=outputs)
 model.compile(optimizer='adam', loss='mse')
 
 model.summary()
+
+#이 뒤에 오류도 다시 해봐야겠다. 그놈의 history 부분..!!!
