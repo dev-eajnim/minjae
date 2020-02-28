@@ -1,59 +1,225 @@
-# 해상도 높여주는 코드 
+# 해상도 높여주는 코드  https://github.com/kairess/super_resolution/blob/master/train.ipynb
+# anaconda prompt 아나콘다 실행해서 해보아요
+# activate test
+# jupyter notebook
 
-~~앞부분~~
+import os, cv2, glob
+import numpy as np
+import matplotlib.pyplot as plt
+from skimage.transform import pyramid_reduce
+plt.style.use('dark_background')
 
+base_path = 'C:/Users/Cashcow005/Desktop/Keras/celeba-dataset'    #경로 지정 처음부터 끝까지 이렇게 해줘야 된다
+img_base_path = os.path.join(base_path, 'img_align_celeba')
+target_img_path = os.path.join(base_path, 'processed')
+
+eval_list = np.loadtxt(os.path.join(base_path, 'list_eval_partition.csv'), dtype=str,delimiter=',',skiprows=1)
+        # np.loadtxt(경로, 파일에서 사용한 구분자, 데이터 타입 지정, skip rows 는 건너뛰어야 할 행이 있을 때 사용하는데 여기서는 첫번째 줄을 skip
+eval_list[0]  #첫번째 사진 정보
+
+###여기가 날 힘들게 했었지###
 img_sample = cv2.imread(os.path.join(img_base_path, eval_list[0][0]))
 
 print(type(img_sample))
-#타입 알려주는 거:class numpy.nparray 배열이네
+  #타입 알려주는 거는class numpy.nparray 배열이네
 
 h, w, _ = img_sample.shape 
-#218,178,3
+  #218,178,3
 
 crop_sample = img_sample[int((h-w)/2):int(-(h-w)/2), :]   
 resized_sample = pyramid_reduce(crop_sample, downscale=4)  
   #pyramid_reduce(img,r) - 이미지를 r배만큼 축소하고 normalize
   #crop_sample.shape (178.178.3) resized_sample.shape(45.45.1)
+resized_sample = resized_sample+[0,0,2]  #★★★★★★이거 때문에... 
+  #아래 두개는 내가 이것저것 찾아보고 해본거임
+  #resized_sample=np.expand_dims(resized_sample, axis=3)
+  #np.testing.assert_array_equal(resized_sample.shape, (int(h/4.8),int(w/3.9),_-2))
 
 pad = int((crop_sample.shape[0] - resized_sample.shape[0]) /2)   #66
-
 padded_sample = cv2.copyMakeBorder(resized_sample, top=pad, bottom=pad, left=pad, right=pad,borderType=cv2.BORDER_CONSTANT, value=(0,0,0))
-
+  
 print('resized_sample.shape',resized_sample.shape)
-    # 김민제 (45,45,1)
+    # 김민제 (45,45,1) 위에 한 줄 코딩 굳이 안해도 되는데 그냥 찍어보고 싶었어
     # 교수님 (45,45,3) 
-
+    # 와.... 그냥 +[0,0,2] 하니까 되네..^^ 하하하하 이런 방법이 있었구나
+    # resized_sample=np.expand_dims(resized_sample, axis=3) 이건 차원을 추가해주는 거였다... 저 숫자는 0부터 아무거나 넣어보면 되는데
+    # 3차원 짜리를 4차원 만들어주는 녀석이다. 근데 난 숫자를 바꿔야 되는 거니까 안됬지
 print(crop_sample.shape,padded_sample.shape)     
     # 김민제 (178,178,3) (177,177)
     # 교수님 (178,178,3) (177,177,3)   
     # 정답   (178,178,3) (178,178,3)
  
 
-# plt.figure(figsize=(12, 5))
-# plt.subplot(1, 4, 1)   
-# plt.imshow(img_sample)
-# plt.subplot(1, 4, 2)
-# plt.imshow(crop_sample)
-# plt.subplot(1, 4, 3)   
-# plt.imshow(resized_sample)  # 이부분이 오류가 납니다
-# plt.subplot(1, 4, 4)
-# plt.imshow(padded_sample)
-
-plt.figure(figsize=(12,5))
+print(crop_sample.shape, padded_sample.shape)
+plt.figure(figsize=(12, 5))
+plt.subplot(1, 4, 1)
+plt.imshow(img_sample)
+plt.subplot(1, 4, 2)
+plt.imshow(crop_sample)
+plt.subplot(1, 4, 3)
 plt.imshow(resized_sample)
+plt.subplot(1, 4, 4)
+plt.imshow(padded_sample)
+  # 근데 난 왜 색갈이 파랗노..?
+  
+~~머신러닝 가기 전에 new 파트의 시작을 알리네, Part 2~~
+import cv2, os, glob
+import numpy as np
+import matplotlib.pyplot as plt
+from keras.layers import Conv2D, Input, Activation
+from keras.models import Model
+from keras.callbacks import ModelCheckpoint
+from skimage.transform import pyramid_expand
 
-~~머신러닝~~
-~기타~
+from keras.layers import Conv2D
+
+
+base_path = 'C:/Users/Cashcow005/Desktop/Keras/celeba-dataset/processed'
+
+x_train_list = sorted(glob.glob(os.path.join(base_path, 'x_train', '*.npy')))
+x_val_list = sorted(glob.glob(os.path.join(base_path, 'x_val', '*.npy')))
+
+print(len(x_train_list), len(x_val_list))
+print(x_train_list[0])
+
 
 x1 = np.load(x_train_list[0])
 x2 = np.load(x_val_list[0])
-
+x1 = x1 + [0,0,2]   #근데 shape에 더하는 게 아니라 그냥 더하는 게 좀 새로운 부분인 거 같다!!
+x2 = x2 + [0,0,2]
 print(x1.shape, x2.shape)
 
+plt.figure(figsize=(10, 5)) 
 plt.subplot(1, 2, 1)
 plt.imshow(x1)
 plt.subplot(1, 2, 2)
 plt.imshow(x2)
 
+  #(44,44,3) (44,44,3)
+  
+
+import keras
+
+class DataGenerator(keras.utils.Sequence):
+    """Generates data for Keras"""
+    """This structure guarantees that the network will only train once on each sample per epoch"""
+
+    def __init__(self, list_IDs, labels, batch_size=32, dim=(32,32,32), n_channels=1,
+             n_classes=10, shuffle=True):
+        self.dim = dim
+        self.batch_size = batch_size
+        self.labels = labels
+        self.list_IDs = list_IDs
+        self.n_channels = n_channels
+        self.n_classes = n_classes
+        self.shuffle = shuffle
+        self.on_epoch_end()
+#########################윗 부분 인터넷에서 찾아다가 넣은 거임###########################
+train_gen = DataGenerator( list_IDs=x_train_list, labels=None, batch_size=16, dim=(44,44), n_channels=3, n_classes=None, shuffle=True)
+
+val_gen = DataGenerator(list_IDs=x_val_list, labels=None, batch_size=16, dim=(44,44), n_channels=3, n_classes=None, shuffle=False)
 
 
+from keras import backend as K
+from keras.layers import Conv2D
+
+"""
+    Subpixel Layer as a child class of Conv2D. This layer accepts all normal
+    arguments, with the exception of dilation_rate(). The argument r indicates
+    the upsampling factor, which is applied to the normal output of Conv2D.
+    The output of this layer will have the same number of channels as the
+    indicated filter field, and thus works for grayscale, color, or as a a
+    hidden layer.
+    Arguments:
+        see Keras Docs for Conv2D args, noting that dilation_rate() is removed
+        r: upscaling factor, which is applied to the output of normal Conv2D
+    A test is included, which performs super-resolution on the Cifar10 dataset.
+    Since these images are small, only a scale factor of 2 is used. Test images
+    are saved in the directory 'test_output/'. This test runs for 5 epochs,
+    which can be altered in line 132. You can run this test by using the
+    following commands:
+    mkdir test_output
+    python keras_subpixel.py
+"""
+
+class Subpixel(Conv2D):
+    def __init__(self,
+                 filters,
+                 kernel_size,
+                 r,
+                 padding='valid',
+                 data_format=None,
+                 strides=(1,1),
+                 activation=None,
+                 use_bias=True,
+                 kernel_initializer='glorot_uniform',
+                 bias_initializer='zeros',
+                 kernel_regularizer=None,
+                 bias_regularizer=None,
+                 activity_regularizer=None,
+                 kernel_constraint=None,
+                 bias_constraint=None,
+                 **kwargs):
+        super(Subpixel, self).__init__(
+            filters=r*r*filters,
+            kernel_size=kernel_size,
+            strides=strides,
+            padding=padding,
+            data_format=data_format,
+            activation=activation,
+            use_bias=use_bias,
+            kernel_initializer=kernel_initializer,
+            bias_initializer=bias_initializer,
+            kernel_regularizer=kernel_regularizer,
+            bias_regularizer=bias_regularizer,
+            activity_regularizer=activity_regularizer,
+            kernel_constraint=kernel_constraint,
+            bias_constraint=bias_constraint,
+            **kwargs)
+        self.r = r
+
+    def _phase_shift(self, I):
+        r = self.r
+        bsize, a, b, c = I.get_shape().as_list()
+        bsize = K.shape(I)[0] # Handling Dimension(None) type for undefined batch dim
+        X = K.reshape(I, [bsize, a, b, int(c/(r*r)),r, r]) # bsize, a, b, c/(rr), r, r
+        X = K.permute_dimensions(X, (0, 1, 2, 5, 4, 3))  # bsize, a, b, r, r, c/(r*r)
+        #Keras backend does not support tf.split, so in future versions this could be nicer
+        X = [X[:,i,:,:,:,:] for i in range(a)] # a, [bsize, b, r, r, c/(r*r)
+        X = K.concatenate(X, 2)  # bsize, b, ar, r, c/(rr)
+        X = [X[:,i,:,:,:] for i in range(b)] # b, [bsize, r, r, c/(r*r)
+        X = K.concatenate(X, 2)  # bsize, ar, br, c/(r*r)
+        return X
+
+    def call(self, inputs):
+        return self._phase_shift(super(Subpixel, self).call(inputs))
+
+    def compute_output_shape(self, input_shape):
+        unshifted = super(Subpixel, self).compute_output_shape(input_shape)
+        return (unshifted[0], self.r*unshifted[1], self.r*unshifted[2], int(unshifted[3]/(self.r*self.r)))
+
+    def get_config(self):
+        config = super(Conv2D, self).get_config()
+        config.pop('rank')
+        config.pop('dilation_rate')
+        config['filters'] = int(config['filters'] / self.r*self.r)
+        config['r'] = self.r
+        return config
+    
+    
+upscale_factor = 4
+
+inputs = Input(shape=(44, 44, 3))
+
+net = Conv2D(filters=64, kernel_size=5, strides=1, padding='same', activation='relu')(inputs)
+net = Conv2D(filters=64, kernel_size=3, strides=1, padding='same', activation='relu')(net)
+net = Conv2D(filters=32, kernel_size=3, strides=1, padding='same', activation='relu')(net)
+net = Conv2D(filters=upscale_factor**2, kernel_size=3, strides=1, padding='same', activation='relu')(net)
+net = Subpixel(filters=3, kernel_size=3, r=upscale_factor, padding='same')(net)
+outputs = Activation('relu')(net)
+
+model = Model(inputs=inputs, outputs=outputs)
+
+model.compile(optimizer='adam', loss='mse')
+
+model.summary()
