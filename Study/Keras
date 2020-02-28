@@ -20,13 +20,13 @@ pad = int((crop_sample.shape[0] - resized_sample.shape[0]) /2)   #66
 padded_sample = cv2.copyMakeBorder(resized_sample, top=pad, bottom=pad, left=pad, right=pad,borderType=cv2.BORDER_CONSTANT, value=(0,0,0))
 
 print('resized_sample.shape',resized_sample.shape)
-# 김민제 (45,45,1)
-# 교수님 (45,45,3) 
+    # 김민제 (45,45,1)
+    # 교수님 (45,45,3) 
 
 print(crop_sample.shape,padded_sample.shape)     
-# 김민제 (178,178,3) (177,177)
-# 교수님 (178,178,3) (177,177,3)   
-# 정답   (178,178,3) (178,178,3)
+    # 김민제 (178,178,3) (177,177)
+    # 교수님 (178,178,3) (177,177,3)   
+    # 정답   (178,178,3) (178,178,3)
  
 
 # plt.figure(figsize=(12, 5))
@@ -41,3 +41,19 @@ print(crop_sample.shape,padded_sample.shape)
 
 plt.figure(figsize=(12,5))
 plt.imshow(resized_sample)
+
+~~머신러닝~~
+~기타~
+
+x1 = np.load(x_train_list[0])
+x2 = np.load(x_val_list[0])
+
+print(x1.shape, x2.shape)
+
+plt.subplot(1, 2, 1)
+plt.imshow(x1)
+plt.subplot(1, 2, 2)
+plt.imshow(x2)
+
+
+
