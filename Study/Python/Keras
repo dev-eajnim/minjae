@@ -225,3 +225,73 @@ model.compile(optimizer='adam', loss='mse')
 model.summary()
 
 #이 뒤에 오류도 다시 해봐야겠다. 그놈의 history 부분..!!!
+############################여기 오류는 없애지 못했습니다############################
+from keras.callbacks import ModelCheckpoint
+
+checkpoint = ModelCheckpoint('models',monitor='val_loss', verbose=1, save_best_only=True, mode='auto')
+
+history = model.fit_generator(train_gen, validation_data=val_gen, epochs=10, verbose=1,                        
+callbacks=[ModelCheckpoint('C:/Users/Cashcow005/Desktop/Keras/celeba-dataset/models/model.h5', monitor='val_loss', verbose=1, save_best_only=True)]
+                             )
+############################
+
+x_test_list = sorted(glob.glob(os.path.join(base_path, 'x_test', '*.npy')))
+y_test_list = sorted(glob.glob(os.path.join(base_path, 'y_test', '*.npy')))
+
+print(len(x_test_list), len(y_test_list))
+print(x_test_list[0])
+
+test_idx = 21
+
+x1_test = np.load(x_test_list[test_idx])
+x1_test_resized = pyramid_expand(x1_test, 4)
+y1_test = np.load(y_test_list[test_idx])
+# x1_test.shape (44,44,1)
+# y1_test.shape (176,176,3)
+x1_test = np.expand_dims(x1_test, axis=0)
+x1_test = x1_test + [0,0,0]
+print('x1_test',x1_test.shape)
+y_pred = model.predict(x1_test.reshape((1, 44, 44, 3)))
+#만약 x.reshape(-1,3) 라면, 모든 원소가 빠짐없이 배치될 수 있도록 -1이 들어가 있는 행row의 개수가 가변적으로 정해집니다.
+
+print(x1_test.shape, y1_test.shape)
+
+#x1_test = (x1_test * 255).astype(np.uint8)              ##########
+x1_test = np.clip(x1_test.reshape((1, 44, 44,3)), 0,1)
+# np.clip: 배열의 값을 제한합니다.예를 들어, 간격 이 지정되면 0보다 작은 값은 0이되고 1보다 큰 값은 1이됩니다.[0, 1]
+x1_test_resized = (x1_test_resized * 255).astype(np.uint8)
+y1_test = (y1_test * 255).astype(np.uint8)
+
+print('before',y_pred.shape)
+y_pred = np.clip(y_pred.reshape(176, 176, 3), 0, 1)   ##########
+print('after',y_pred.shape)
+
+print('다른건 사이즈가 몇이냐',x1_test_resized.shape,y1_test.shape)
+print('before',x1_test.shape)
+x1_test = np.squeeze(x1_test, axis=0)
+print('after',x1_test.shape)
+# x1_test = cv2.cvtColor(x1_test, cv2.COLOR_BGR2RGB)   
+# 얘 주석 풀으면 오류나서 실행이 안되
+x1_test_resized = cv2.cvtColor(x1_test_resized, cv2.COLOR_BGR2RGB)
+y1_test = cv2.cvtColor(y1_test, cv2.COLOR_BGR2RGB)
+y_pred = cv2.cvtColor(y_pred, cv2.COLOR_BGR2HSV)
+#cv2.COLOR_BGR2GRAY
+#cv2.COLOR_BGR2HSV
+
+# cv2.cvtcolor(원본 이미지, 색상 변환 코드)를 이용하여 이미지의 색상 공간을 변경할 수 있습니다.
+
+plt.figure(figsize=(15, 10))
+plt.subplot(1, 4, 1)
+plt.title('input')       ##########
+plt.imshow(x1_test)      ##########
+plt.subplot(1, 4, 2)
+plt.title('resized')
+plt.imshow(x1_test_resized)
+plt.subplot(1, 4, 3)
+plt.title('output')      ##########
+plt.imshow(y_pred)       ##########
+plt.subplot(1, 4, 4)
+plt.title('groundtruth')
+plt.imshow(y1_test)
+
+#컬러들이 이상하긴 한데 출력되는게 대단합니다...ㅋㅋ 시간 진자 오래걸렸어요ㅠ
