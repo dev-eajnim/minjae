@@ -218,6 +218,7 @@ net = Conv2D(filters=upscale_factor**2, kernel_size=3, strides=1, padding='same'
 net = Subpixel(filters=3, kernel_size=3, r=upscale_factor, padding='same')(net)
 outputs = Activation('relu')(net)
 
+#Design model
 model = Model(inputs=inputs, outputs=outputs)
 
 model.compile(optimizer='adam', loss='mse')
@@ -229,7 +230,7 @@ model.summary()
 from keras.callbacks import ModelCheckpoint
 
 checkpoint = ModelCheckpoint('models',monitor='val_loss', verbose=1, save_best_only=True, mode='auto')
-
+# train model on your dataset
 history = model.fit_generator(train_gen, validation_data=val_gen, epochs=10, verbose=1,                        
 callbacks=[ModelCheckpoint('C:/Users/Cashcow005/Desktop/Keras/celeba-dataset/models/model.h5', monitor='val_loss', verbose=1, save_best_only=True)]
                              )
@@ -294,4 +295,4 @@ plt.subplot(1, 4, 4)
 plt.title('groundtruth')
 plt.imshow(y1_test)
 
-#컬러들이 이상하긴 한데 출력되는게 대단합니다...ㅋㅋ 시간 진자 오래걸렸어요ㅠ
+#컬러들이 이상하긴 한데 출력되는게 대단합니다...ㅋㅋ 시간 진짜 오래걸렸어요ㅠ
