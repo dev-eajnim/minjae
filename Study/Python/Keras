@@ -234,6 +234,16 @@ checkpoint = ModelCheckpoint('models',monitor='val_loss', verbose=1, save_best_o
 history = model.fit_generator(train_gen, validation_data=val_gen, epochs=10, verbose=1,                        
 callbacks=[ModelCheckpoint('C:/Users/Cashcow005/Desktop/Keras/celeba-dataset/models/model.h5', monitor='val_loss', verbose=1, save_best_only=True)]
                              )
+                             
+#fit_generator(tarin_generator, 
+               steps_per_epoch=15,               한 epoch에 사용한 스텝수 / 총 45개의 훈련 샘플, 배치사이즈가 3이면 스텝은 15
+               epochs=100,                       100번 반복적으로 학습
+               validation_data,                  
+               validation_steps=5)               epoch 종료시마다 검증될 때 사용되는 검증 스텝수/총 15개의 검증 샘플, 배치size가 3이면 step은 5
+
+# batch size != epoch 둘은 다르다
+1000개의 데이터를 batch_size = 10개로 넘겨준다고 가정하자. 
+ 그러면 총 10개씩 batch로서 그룹을 이루어서 들어가게 되며, 총 100개의 step을 통해 1epoch를 돈다.
 ############################
 
 x_test_list = sorted(glob.glob(os.path.join(base_path, 'x_test', '*.npy')))
