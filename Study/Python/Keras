@@ -231,10 +231,15 @@ from keras.callbacks import ModelCheckpoint
 
 checkpoint = ModelCheckpoint('models',monitor='val_loss', verbose=1, save_best_only=True, mode='auto')
 # train model on your dataset
+# fit_generator란 모델을 학습시킬 때 제네레이터로 생성된 배치로 학습시킬 경우에 사용합니다.
+# 파이썬의 생성기에 의해 batch 단위로 생성된 데이터에 모델을 피팅합니다.
+
+☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
 history = model.fit_generator(train_gen, validation_data=val_gen, epochs=10, verbose=1,                        
 callbacks=[ModelCheckpoint('C:/Users/Cashcow005/Desktop/Keras/celeba-dataset/models/model.h5', monitor='val_loss', verbose=1, save_best_only=True)]
                              )
-                             
+☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+
 #fit_generator(tarin_generator, 
                steps_per_epoch=15,               한 epoch에 사용한 스텝수 / 총 45개의 훈련 샘플, 배치사이즈가 3이면 스텝은 15
                epochs=100,                       100번 반복적으로 학습
