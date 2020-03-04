@@ -1,0 +1,3 @@
+epoch
+
+: One Epoch is when an ENTIRE dataset is passed forward and backward through the neural network only ONCE
