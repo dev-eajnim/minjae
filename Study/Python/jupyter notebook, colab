@@ -1,10 +1,29 @@
-jupyter notebook, colab의 차이가 무엇인가
+▶jupyter notebook, colab의 차이가 무엇인가
+→ 둘 다 
 
-둘 다 머신러닝을 할 때 사용합니다.
+▷colab
+→ 그런데 google colab을 이용하는게, jupyter notebook 환경에서 공부하는 것보다 더 편합니다 .
 
-그런데 google colab을 이용하는게, jupyter notebook 환경에서 공부하는 것보다 더 편합니다 .
+→ CoLab은 주피터 노트북 환경과 Google Drive를 합친 것과 같습니다. 
+  구글 계정만 있으면 무료로 이용할 수 있어서 간단하게 머신러닝 공부가 가능합니다.
+  또한, 무료 서비스일 뿐만 아니라 GPU가지 지원합니다.
 
-CoLab은 주피터 노트북 환경과 Google Drive를 합친 것과 같습니다. 구글 계정만 있으면 무료로 이용할 수 있어서 간단하게 머신러닝 공부가 가능합니다.
-또한, 무료 서비스일 뿐만 아니라 GPU가지 지원합니다.
+▷jupyter notebook
+→ jupyter notebook는 절대 경로로 설정해주는 것이 좋습니다. 
 
-jupyter notebook는 절대 경로로 설정해주는 것이 좋습니다. 
+  ⊙Mark down을 이용한 주피터 노트북 정리
+    → 콤보박스에서, code를 markdown으로 바꿔야 합니다!!
+    
+    1)  문단 제목용 글자 사이즈 조절
+    # size, 가장 큰 글자
+    ## size, 중간 글자
+    ### size, 가장 작은 글자
+    
+    2) 링크 걸기
+    [링크의 제목이 되는 내용을 대괄호 안에 넣고] (소괄호 안에는 링크를 넣음)
+    
+    3) 글자를 진하게 하거나 기울여서 강조하고 싶을 때
+    __언더바 2개로 진하게__
+    _언더바 1개로 이태리체_
+    
+    마크다운 
