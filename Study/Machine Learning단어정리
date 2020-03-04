@@ -53,4 +53,6 @@ batch size = 500
 1epoch는 데이터 size가 500인 batch가 4번의 iteration으로 나누어집니다.
 
 전체 데이터 셋을 20번 학습하므로
-iteration입장에서는 80번 학습이 이
+iteration입장에서는 80번 학습이 이루어진 것이다.
+
+※issues에 사진 참고!
