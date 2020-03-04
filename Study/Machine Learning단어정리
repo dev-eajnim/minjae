@@ -21,6 +21,24 @@
 
 ▷ 인공지능:가장 넓음 ) 머신러닝 ) 딥러닝 - 가장 좁음
 
+▶ 신경망의 정확도 95%는 얼마나 정확한 것일까요?
+→ 우리의 신경망은 95% 정확하다 할 수 있습니다.
+  95%라는 것은 다른 의미로 볼 수도 있습니다
+  
+→ 만약 훈련 이미지의 5 %가 새이고 나머지 95%가 새가 아닌 경우 어떻게 될까요? 
+  매번 “새가 아니다”라고 추측하는 프로그램이 있다면 이것은 95% 정확한 것이 됩니다! 
+  그러나 이것은 또한 100% 쓸모 없습니다.
+  
+  1) 맞힌 긍정(true positives): 신경망이 올바르게 새를 식별함 (여러 종류의 새를 성공적으로 인식)
+  2) 맞힌 부정(true negatives): '새가 아니다'라고 올바르게 식별 (말과 트럭은 새가 아니라고 인식)
+  3) 틀린 긍정(false positives): 새라고 생각했지만, 실제 새가 아닌 이미지 (비행기를 새라고 착각한 경우)
+  4) 틀린 부정(false negatives): 정확하게 새로 인식하지 못한 이미지 (이 새들에게 속았습니다. 타조도 새인가요?)
+  → 평균적인 정확도를 보는 대신 precision 과 recall을 계산했습니다.
+    precision: If we predicted bird, how often was it really a bird? 
+    recall: What percentage of the actual birds did we find?
+    예) precision = 97%. recall = 90% 라면, 
+        97%의 정확도로 '새'를 추측했다. 그러나 데이터 셋에서 실제 새의 90%만 발견했다.
+        모든 새를 발견하지 못할 수는 있지만, 발견했을 때는 꽤 정확하게 맞출 수 있다.
 
 ▶ epoch
 : One Epoch is when an ENTIRE dataset is passed forward and backward through the neural network only ONCE
