@@ -85,7 +85,7 @@ print(x_train_list[0])
 
 x1 = np.load(x_train_list[0])
 x2 = np.load(x_val_list[0])
-x1 = x1 + [0,0,2]   #근데 shape에 더하는 게 아니라 그냥 더하는 게 좀 새로운 부분인 거 같다!!
+x1 = x1 + [0,0,2]   #근데 .shape에 더하는 게 아니라, 그냥 더하는 게 좀 새로운 부분인 거 같다!!
 x2 = x2 + [0,0,2]
 print(x1.shape, x2.shape)
 
@@ -114,7 +114,7 @@ class DataGenerator(keras.utils.Sequence):
         self.n_classes = n_classes
         self.shuffle = shuffle
         self.on_epoch_end()
-#########################윗 부분 인터넷에서 찾아다가 넣은 거임###########################
+#########################위, 아래부분 인터넷에서 찾아다가 넣은 거임###########################
 train_gen = DataGenerator( list_IDs=x_train_list, labels=None, batch_size=16, dim=(44,44), n_channels=3, n_classes=None, shuffle=True)
 
 val_gen = DataGenerator(list_IDs=x_val_list, labels=None, batch_size=16, dim=(44,44), n_channels=3, n_classes=None, shuffle=False)
@@ -236,7 +236,10 @@ checkpoint = ModelCheckpoint('models',monitor='val_loss', verbose=1, save_best_o
 
 ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
 history = model.fit_generator(train_gen, validation_data=val_gen, epochs=10, verbose=1,                        
-callbacks=[ModelCheckpoint('C:/Users/Cashcow005/Desktop/Keras/celeba-dataset/models/model.h5', monitor='val_loss', verbose=1, save_best_only=True)]
+callbacks=[ModelCheckpoint('C:/Users/Cashcow005/Desktop/Keras/celeba-dataset/models/model.h5', 
+           monitor='val_loss', 
+           verbose=1, 
+           save_best_only=True)]
                              )
 ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
 
