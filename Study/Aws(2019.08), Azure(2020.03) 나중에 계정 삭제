@@ -15,15 +15,22 @@
   3. 검색 창에 storage 검색 후, 'storage계정 blob, File, Table, Queue' 연두색 달력모양 선택
   4.
     → 구독: '무료체험'
-    →  리소스 그룹 > 새로만들기 > 이름: 원하는 걸로, test 
-    →  스토리지 계정이름: 원하는 걸로, mjkim
-    →  위치: Asia Pacific 한국 중부
-    →  나머지는 defalut
+    → 리소스 그룹 > 새로만들기 > 이름: 원하는 걸로, test 
+    → 스토리지 계정이름: 원하는 걸로, mjkim
+    → 위치: Asia Pacific 한국 중부
+    → 나머지는 defalut
   5. 검토+만들기
  
   6.  유효성 검사
-    →처음에 했을 때는 안됬는데 이전으로 돌아갔다가 하니까 됬네
+    → 처음에 했을 때는 안됬는데 이전으로 돌아갔다가 하니까 됬네
   7. 만들기
   8. 배포 성공시 [리소스로 이동]
   
-2) 
+2) Azure Storage Explorer다운로드
+  1. https://azure.microsoft.com/ko-kr/features/storage-explorer/
+    → storage explorer 지금 다운로드
+       (C:\Program Files (x86)\Microsoft Azure Storage Explorer에 저장되어 있다)
+       (Microsoft Azure Storage Explorer폴더명)
+  2. Azure Storage Explorer 창이 열리면 Azure 계정으로 로그인
+    → Azure environment: 'Azure' > sign in > 로그인
+    → 그럼 열림
