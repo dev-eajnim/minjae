@@ -1,6 +1,7 @@
 ▶ Microsoft Azure
   → windows, microsoft에서 만든 클라우드 컴퓨팅 플랫폼
   → 어딘가에 있는 가상공간을 빌려쓴다
+  ▶ aws 계정은 i..어쩌구 저쩌구 예정이여서 삭제가 안된다는 글을 본듯, 비용은 0.0이긴 했음
   
 ▶ Azure 시작방법
 ※참조 https://www.slideshare.net/MinnieSeungminCho/microsoft-computer-vision-ocr
@@ -53,3 +54,34 @@
   6. 데이터 넣은 파일(image) 우클릭 > 공용 액세스 수준 설정 
       > '오직 Blob에 대한 공용 읽기 권한' (public read access for Blobs only) > 적용
     → 이렇게 하면 외부에서 url을 검색하면 데이터를 읽어줄 수(보여줄 수) 있다.
+    
+    
+< Cognitive Services Dev 사이트에서 테스트 >
+이어서...
+
+1) Azure Portal에서 Computer Vision 생성
+  1. https://portal.azure.com/#home 접속 후 Azure 계정 로그인
+  2. [+리소스 만들기] > computer vision 검색 & 선택 > 만들기
+  3. 만들기 이름 설정
+    → 이름: mj-computervision
+    → 구독: 무료체험, default
+    → 위치: 동남아시아 (이걸로 해야 url이 성립)
+    → 가격 책정 계층: s1
+    → 리소스 그룹: test 이전에 만들어놨던 그룹
+    → 배포 성공 시 [리소스로 이동]
+
+2) Computer Vision 키 확인
+    → 왼쪽에 리소스 관리 > (키모양) 키 및 엔드포인트
+    → '키1' key1 복사
+
+3) Microsoft Cognitive Services Dev 접속
+    → https://southeastasia.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc/console
+      (해당 테스트 환경에서는 이미지를 URL로만 접근합니다)
+
+4) Computer Vision 키 입력 후 이미지 분석
+    1. Query parameters 'language': 'ko'한국어 선택
+    2. Headers 'cp-Apim-Subscripton-Key'에 생성한 Computer Vision Key 붙여넣기
+    3. Request body 'url'에 분석할 이미지 url 붙여넣기
+       (아까 microsoft azure storage explorer에서 이미지를 url로 바꾼 것)
+    4. [send] 클릭하여 api 호출
+5) Jason 결과값 확인
