@@ -1,3 +1,29 @@
 ▶ Microsoft Azure
   → windows, microsoft에서 만든 클라우드 컴퓨팅 플랫폼
   → 어딘가에 있는 가상공간을 빌려쓴다
+  
+▶ Azure 시작방법
+※참조 https://www.slideshare.net/MinnieSeungminCho/microsoft-computer-vision-ocr
+
+1) Azure Storage 생성
+  1. https://portal.azure.com/#home 접속 후 계정 로그인
+  
+  (microsoft로 로그인이 되어 있음, minjeya97@ga.gachon.ac.kr)
+  (나는 체험판 가입이 안되어 있어서 새로 로그인함. 학교 계정은 안되나봄. minjeya97@naver.com 12minje34)
+  
+  2. '+ 리소스 만들기'
+  3. 검색 창에 storage 검색 후, 'storage계정 blob, File, Table, Queue' 연두색 달력모양 선택
+  4.
+    → 구독: '무료체험'
+    →  리소스 그룹 > 새로만들기 > 이름: 원하는 걸로, test 
+    →  스토리지 계정이름: 원하는 걸로, mjkim
+    →  위치: Asia Pacific 한국 중부
+    →  나머지는 defalut
+  5. 검토+만들기
+ 
+  6.  유효성 검사
+    →처음에 했을 때는 안됬는데 이전으로 돌아갔다가 하니까 됬네
+  7. 만들기
+  8. 배포 성공시 [리소스로 이동]
+  
+2) 
