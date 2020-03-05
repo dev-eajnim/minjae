@@ -34,3 +34,10 @@
   2. Azure Storage Explorer 창이 열리면 Azure 계정으로 로그인
     → Azure environment: 'Azure' > sign in > 로그인
     → 그럼 열림
+3) Azure Storage에 데이터 저장 
+    → 목차표시(탐색기) 클릭
+    → 스토리지 계정이름(mjkim) > Blob Containers 우클릭  > Blob 컨테이너 만들기 (create Blob container) 블랍
+    ※ Blob 서비스란: 구조화되지 않은 데이터를 위한 rest기반의 개체 스토리지
+       → Binary large object, basic large object
+       → 모든 종류와 크기의 파일을 의미, 우리가 알고 있는 대부분의 파일은 블랍이다.
+       
