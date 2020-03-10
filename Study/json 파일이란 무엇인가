@@ -1,2 +1,7 @@
 json 파일이란 무엇인가
 
+: JavaScript Object Notation
+
+▶ 네트워크를 통해 데이터를 주고받는 데 자주 사용되는 경량의 데이터 형식
+
+▶ name - value 형태의 쌍으로 이루어져 있음
