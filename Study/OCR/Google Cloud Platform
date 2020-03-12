@@ -1,0 +1,7 @@
+# Google Cloud Platform 에서 "구글 OCR" 하기 
+
+1. 환경 세팅
+1) https://console.cloud.google.com/
+2) 프로젝트 만들기
+  - 프로젝트 이름: My Project 3000
+  - 프로젝트 ID: my-project-3000-270923
