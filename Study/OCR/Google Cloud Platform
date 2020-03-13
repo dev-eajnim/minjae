@@ -1,7 +1,18 @@
 # Google Cloud Platform 에서 "구글 OCR" 하기 
-
+참고: (1번) https://freestrokes.tistory.com/70
+      (2번) https://ssungkang.tistory.com/entry/Google-Vision-API-%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%9C-%EA%B8%80%EC%9E%90-%EC%9D%B8%EC%8B%9D
 1. 환경 세팅
 1) https://console.cloud.google.com/
 2) 프로젝트 만들기
   - 프로젝트 이름: My Project 3000
   - 프로젝트 ID: my-project-3000-270923
+3) 탐색 보드 >> API및 서비스 >> 사용자 인증번호 >> 서비스 계정 관리
+  - (2번)을 수행해서 서비스 계정을 만들어 놓고, json 키를 받으려면 서비스 계정에 다시 들어가서 "키 추가"를 누르면 .json파일을 저장할 수 있다.
+4) "cmd 창에서" pip install ~~
+  - cmd 맨날 헷갈려
+
+
+참고: https://jeongchul.tistory.com/578
+얘가 더 도움이 되겠어요
+
+아냐 모르겟어요
