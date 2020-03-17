@@ -1,3 +1,8 @@
 class <'dict'> : 딕셔너리
 
 https://wikidocs.net/16
+
+
+배열 속에 딕셔너리가 들어가 있다.
+딕셔너리의 key 를 이용해 value print
+
