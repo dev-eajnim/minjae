@@ -3,9 +3,15 @@ class <'dict'> : 딕셔너리
 https://wikidocs.net/16
 
 
-배열 속에 딕셔너리가 들어가 있다.
+배열 속에 딕셔너리가 들어가 있다. >> 배열이니까 인덱스 사용!!
 딕셔너리의 key 를 이용해 value print
 
+배열: []
+딕셔너리: {}
+→ key, value로 이루어져 있다.
+
+vaule1 = { 'color' : 'green', 'age' : 24, 'address' : 'seoul' }
+print( value1['age']) >> print(json_data[i]['bbox])
 ---------------------------------------------------------
 딥러닝에서 가중치가 뭐냐고
 - 퍼셉트론은 다수의 신호(Input)을 입력받아서 하나의 신호(Output)을 출력한다
