@@ -70,6 +70,7 @@
 : The number of passes to complete one epoch.
 
 → epoch를 나누어서 실행하는 횟수
+→ 몇 번 반복할건지 명시해줌
 
 ▷ 정리...
 메모리의 한계와 속도 저하때문에 대부분의 경우에는 한 번의 epoch 에서 모든 데이터를 한꺼번에 집어넣을 수는 없습니다. 
