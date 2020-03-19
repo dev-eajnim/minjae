@@ -39,4 +39,4 @@
         $ git remote
         origin
             # 잘 된 거 같다
- 
+git push origin master 했는데 
