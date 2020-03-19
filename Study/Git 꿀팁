@@ -39,4 +39,7 @@
         $ git remote
         origin
             # 잘 된 거 같다
-git push origin master 했는데 
+git push origin master 했는데 권한이 없어서 안된데, 이게 상대방이 허락을 안해줘서 그런 거 같다. 휴
+
+참조: http://www.talkdev.net/git-%EA%B0%84%EB%8B%A8%ED%95%9C-%EC%82%AC%EC%9A%A9%EB%B2%95/
+!!여기 설명을 잘 해주는 듯!!
