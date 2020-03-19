@@ -40,9 +40,13 @@
         origin
             # 잘 된 거 같다
 git push origin master 했는데 권한이 없어서 안된데, 이게 상대방이 허락을 안해줘서 그런 거 같다. 휴
-
+ ▷ 근데 결국 어떻게 됬는지 알아? 그냥 깃 파일을 다운받는 거 있자나, 거기서 데스크탑으로 열기 해서 어떻게 해서 그냥 됨.. 
+    내가 하면 안되구 어의없엉 화나화나 짜증짜증
 참조: http://www.talkdev.net/git-%EA%B0%84%EB%8B%A8%ED%95%9C-%EC%82%AC%EC%9A%A9%EB%B2%95/
 !!여기 설명을 잘 해주는 듯!!
 
 
 ▶ 그럼 깃은 어떻게 쓰는 거냐? 도대체 뭔 구조냐고!
+참조: https://gmlwjd9405.github.io/2017/10/27/how-to-collaborate-on-GitHub-1.html
+
+이거 보고 깃 정리해봐 새캬
