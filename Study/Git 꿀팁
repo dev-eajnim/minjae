@@ -16,6 +16,7 @@
 → git remote add origin https://github.com/[이름]/gitExample로 origin이라는 이름으로 원격 저장소 주소를 등록합니다. 
   이제부터 origin이라는 이름을 사용하면 방금 전에 우리가 만든 저장소에 접속할 수 있습니다. 
   (굳이 origin이라고 안 하고 다른 이름으로 해도 됩니다.) 
+  우리는 origin이라는 별명!!을 만들어준 것과 같다.
   만약 origin이라는 원격 저장소를 지우고 싶다면 git remote remove origin하면 됩니다.
   
   ▷ 나의 경우...
@@ -38,5 +39,4 @@
         $ git remote
         origin
             # 잘 된 거 같다
-     git remote
-     origin 
+ 
