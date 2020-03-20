@@ -38,4 +38,9 @@ print( value1['age']) >> print(json_data[i]['bbox])
 출처: https://sacko.tistory.com/10 [데이터 분석하는 문과생, 싸코]
 
 ---------------------------------------------------------
-코코 파일은 뭐냐고 ㄱㅃㅊ
+코코 파일
+- large scale object detection, segmentation and captioning dataset. 
+- 머신러닝을 위해 사용하는 데이터 셋으로써, object detection, segmentation, keypoint detection 등을 위한 데이터 셋
+- 많은 그림 파일을 갖고 있으므로 용량이 큽니다.
+- 그래서 다운 받을 때 gsutil로 받는걸 권장합니다
+- 그 다음 image data, annotation data를 다운 받습니다.
