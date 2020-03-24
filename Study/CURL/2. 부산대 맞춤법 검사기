@@ -15,4 +15,12 @@
 ● curl -I http://javaking75.blog.me
 
 # 출력결과를 파일로 저장하기
-​ curl http://speller.cs.pusan.ac.kr/ > minje.html
+● curl http://speller.cs.pusan.ac.kr/ > minje.html
+
+# 나의 ip 정보를 담은 json 문자열을 받아 파일로 저장한다
+● curl -o my_ip.json http://httpbin.org/ip
+
+# 해당 사이트 정보를 html 형식으로 받아 txt파일로 저장
+● curl -o download_file.txt http://speller.cs.pusan.ac.kr/ 
+?? 이렇게 결과를 받아오면 될까?
+
