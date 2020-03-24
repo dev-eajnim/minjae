@@ -1,9 +1,18 @@
 ▶ 영수증 데이터를 넣으면 지정된 단어들로 바꿔주는 맞춤법 검사기 마들기
 ▶ 진행 PROCESS
 1) 영수증 OCR 데이터를 부산대 홈페이지에 넣기 : CURL 사용
-2) 결과 받아오기 : 어떤 파일 형식으로 받아올 것인가? JSON? 
+2) 결과 받아오기 : 어떤 파일 형식으로 받아올 것인가? https? 
 
-# 이 모든 것은 cmd창에서 입출력이 진행됩니다.
+! 이 모든 것은 cmd창에서 입출력이 진행됩니다.
 
+# URL 파라미터 전달하기, -G안써도 된다
 ● curl -G http://speller.cs.pusan.ac.kr/
-: URL 파라미터 전달하기
+
+# HTTP 헤더 포함하여 출력하기 
+● curl -i http://javaking75.blog.me
+
+# HTTP 헤더만 출력하기 
+● curl -I http://javaking75.blog.me
+
+# 출력결과를 파일로 저장하기
+​ curl http://speller.cs.pusan.ac.kr/ > minje.html
