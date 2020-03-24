@@ -1,0 +1,23 @@
+cURL 다운로드 방법 참고 영상: https://www.youtube.com/watch?v=7XUibDYw4mc
+CURL 다운로드 사이트: https://curl.haxx.se/download.html
+
+## cmd 에서 curl 이라고 쓰면서 적어주면 사용가능 하다
+
+
+# CURL이란?
+서버와 통신할 수 있는 커맨드 명령어 툴입니다. 
+웹개발에 매우 많이 사용되고 있는 무료 오픈소스입니다. 
+curl의 특징으로는 다음과 같은 수 많은 프로토콜을 지원한다는 장점이 있습니다.
+
+다양한 지원프로토콜들...
+DICT, FILE, FTP, FTPS, Gopher, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S,
+RTMP, RTSP, SCP, SFTP, SMB, SMBS, SMTP, SMTPS, Telnet, TFTP
+
+#CURL 설정 가능한 옵션
+-X : 사용할 방식 메소드 선택하기
+-d : 함께 전달할 파라미터값 설정하기
+-G : 전송할 사이트 url 및 ip 주소
+-H : 헤더 정보를 전달하기
+-i : 사이트의 Header 정보만 가져오기
+-I : 사이트의 Header와 바디 정보를 함께 가져오기
+-u : 사용자 정보
