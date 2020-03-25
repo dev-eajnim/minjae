@@ -21,3 +21,5 @@ RTMP, RTSP, SCP, SFTP, SMB, SMBS, SMTP, SMTPS, Telnet, TFTP
 -i : 사이트의 Header 정보만 가져오기
 -I : 사이트의 Header와 바디 정보를 함께 가져오기
 -u : 사용자 정보
+
+#(리눅스)cat --> (윈도우즈)type
