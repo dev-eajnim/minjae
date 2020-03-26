@@ -28,3 +28,4 @@
 ● type mylog.txt | find "FINDTEXT" >> result.txt
 
 
+파일을 업로드 하는 request!
