@@ -6,6 +6,7 @@
 ! 이 모든 것은 cmd창에서 입출력이 진행됩니다.
 
 # URL 파라미터 전달하기, -G안써도 된다
+# 가끔 웹페이지 출력이 안되는 경우가 있는데, 그땐 https에서 s를 지워서 http로 입력해보면 될 것이다.
 ● curl -G http://speller.cs.pusan.ac.kr/
 
 # HTTP 헤더 포함하여 출력하기 
