@@ -36,3 +36,6 @@
 
 1) php 파일로 변환하는 방법 
 https://m.blog.naver.com/PostView.nhn?blogId=till0312&logNo=221039901357&proxyReferer=https%3A%2F%2Fwww.google.com%2F
+
+
+-d 사용해서 inputForm  / textarea = text1 에 넣으면 될듯
