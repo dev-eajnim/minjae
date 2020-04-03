@@ -3,3 +3,7 @@
 
 참고: https://blockdmask.tistory.com/346
 → 파이참 시작방법
+
+
+pip install selenium
+python -m pip install --upgrade pip
