@@ -50,3 +50,7 @@ git push origin master 했는데 권한이 없어서 안된데, 이게 상대방
 참조: https://gmlwjd9405.github.io/2017/10/27/how-to-collaborate-on-GitHub-1.html
 
 이거 보고 깃 정리해봐 새캬
+
+▶ Colab & Git clone
+  →  !git clone <깃 주소> <'/gdrive/My Drive/구글 드라이브 내 깃 저장소를 클론할 디렉토리 경로'>
+      출처: https://mylifemystudy.tistory.com/70 [ENCAPSULATION]
