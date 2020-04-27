@@ -6,3 +6,13 @@ http://tcpschool.com/javascript/js_intro_syntax
 
 ▶ Node.js가 필요한 거였어
  node.js 저장위치)C:\Program Files\nodejs\
+
+ → cmd 창에서...
+   1) 버전확인(node js가 있는 경로로 들어가서): node -v
+      C:\Program Files\nodejs>node -v
+      
+   2) 화면에 입력할 수 있는 상태만들기: node 엔터
+      C:\Program Files\nodejs>node
+      Welcome to Node.js v12.16.2.
+      Type ".help" for more information.
+      >  
