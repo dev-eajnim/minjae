@@ -16,3 +16,13 @@ http://tcpschool.com/javascript/js_intro_syntax
       Welcome to Node.js v12.16.2.
       Type ".help" for more information.
       >  
+ → aca/koreanan-language-server 에서 하라는대로 실행
+ https://github.com/aca/korean-language-server
+   3) 
+      C:\Program Files\nodejs>npm i -g korean-ls
+      C:\Users\Cashcow005\AppData\Roaming\npm\korean-ls -> C:\Users\Cashcow005\AppData\Roaming\npm\node_modules\korean-ls\main.js
+      + korean-ls@0.1.4
+      added 18 packages from 59 contributors in 10.703s
+      
+      
+    4) 
