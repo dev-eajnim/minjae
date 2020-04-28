@@ -8,16 +8,15 @@ http://tcpschool.com/javascript/js_intro_syntax
  node.js 저장위치)C:\Program Files\nodejs\
 
  → cmd 창에서...
-   1) 버전확인(node js가 있는 경로로 들어가서): node -v
-      C:\Program Files\nodejs>node -v
+   1) 버전확인: node -v
+      C:\Program Files\nodejs>node -v   (경로 상관없네)
       
    2) 화면에 입력할 수 있는 상태만들기: node 엔터
       C:\Program Files\nodejs>node
       Welcome to Node.js v12.16.2.
       Type ".help" for more information.
       >  
- → aca/koreanan-language-server 에서 하라는대로 실행
- https://github.com/aca/korean-language-server
+ → aca/koreanan-language-server 에서 하라는대로 실행 (https://github.com/aca/korean-language-server)
    3) 
       C:\Program Files\nodejs>npm i -g korean-ls
       C:\Users\Cashcow005\AppData\Roaming\npm\korean-ls -> C:\Users\Cashcow005\AppData\Roaming\npm\node_modules\korean-ls\main.js
@@ -35,3 +34,5 @@ mkdir code   (code라는 새폴더만들기)
 cd code   (code폴더로 가서)
 git clone https://github.com/aca/korean-language-server.git    (주소입력)
 
+▶ Node.js란?
+  - 실시간 웹 애플리케션을 만들 수 
