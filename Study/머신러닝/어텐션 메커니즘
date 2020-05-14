@@ -22,3 +22,11 @@
   그리고 구해낸 이 유사도를 키와 맵핑되어있는 각각의 '값(Value)'에 반영해줍니다. 
   그리고 유사도가 반영된 '값(Value)'을 모두 더해서 리턴합니다. 
   여기서는 이를 어텐션 값(Attention Value)이라고 하겠습니다.
+  
+  query가 각각의 key에 어느정도 attention을 둬야하는지 계산한다.
+  key와 value는 attention이 이루어지는 위치에 상관없이 같은 값을 가진다.
+  
+  query와 key에 대한 dot-product(내적)를 계산하면 각각의 query와 key 사이의 유사도를 구할 수 있다.
+  이 후 softmax를 거친 값을 value에 곱해줄 때, query와 유사한 value일수록, 즉 중요한 value일수록 더 높은 값을 가지게 된다.
+  
+  q1 = x1 * Wq, k1 = x1 * Wk, v1 = x1 * Wv
