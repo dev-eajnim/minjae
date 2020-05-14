@@ -30,3 +30,6 @@
   이 후 softmax를 거친 값을 value에 곱해줄 때, query와 유사한 value일수록, 즉 중요한 value일수록 더 높은 값을 가지게 된다.
   
   q1 = x1 * Wq, k1 = x1 * Wk, v1 = x1 * Wv
+
+▶ Conditional Random Field(CRF)
+  하나의 sequence를 보고 판단하는 것이 아니라 사진을 찍었던 순간 이전 혹은 이후를 참조해 지금 상태를 결정하는 것
