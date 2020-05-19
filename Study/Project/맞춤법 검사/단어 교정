@@ -16,5 +16,5 @@
 
 ▷ 편집거리: 두 문자열이 얼마나 유사한지 판단
 
-	▶ Levenshtein distance
+	▶ Levenshtein distance(리벤슈테인)
 	▶ Damerau-Levenshtein distance
