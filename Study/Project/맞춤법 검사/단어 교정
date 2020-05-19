@@ -17,4 +17,14 @@
 ▷ 편집거리: 두 문자열이 얼마나 유사한지 판단
 
 	▶ Levenshtein distance(리벤슈테인)
+		→ string 의 형태적인 거리를 정의하는 방법
+		→ 한 string s1 에서 다른 s2 로 교정하는데 드는 최소 횟수를 두 strings 간의 거리로 정의합니다.
+		  (Word2Vec은 단어 간 의미적 유사성 (거리)를 벡터로 표현, 형태적 유사성은 없음)
+		→ 가장 적은 비용이 드는 수정 방법을 찾는 것이 Levenshtein distance 의 목표
+		→ 3가지 edit방법
+			1. delete: ‘점심을먹자 --> 점심먹자’ 로 바꾸기 위해서는 을 을 삭제해야 합니다.
+			2. insert: ‘점심먹자 --> 점심을먹자’ 로 바꾸기 위해서는 반대로 을 을 삽입해야 합니다.
+			3. substitution: ‘점심먹자 --> 점심먹장’ 로 바꾸기 위해서는 자를 장 으로 치환해야 합니다.
+ 
 	▶ Damerau-Levenshtein distance
+		→
