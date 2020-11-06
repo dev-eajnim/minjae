@@ -1,3 +1,17 @@
 서버: 톰캣
 개발 환경: 이클립스
 개발 언어: javascript
+
+
+20/11/07
+
+C:\Temp\JAVA\temp1\sample
+
+<Tomcat설치>
+C:\Program Files\Apache Software Foundation\Tomcat 9.0
+username) mjkim
+password) 
+
+경로 이동 후 bin >> startup.bat(톰캣 서버 시작)  >> http://localhost:8080 
+
+# javascript 파일 실행이 안됨
